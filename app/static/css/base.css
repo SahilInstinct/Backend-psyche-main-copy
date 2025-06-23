@@ -1,0 +1,197 @@
+:root {
+    --font-primary: 'Poppins', sans-serif;
+
+    /* Colors */
+    --color-bg: radial-gradient(ellipse at bottom right, #30065e, #041743);
+    --color-text: #EDEDED;
+    --color-text-muted: #A6A6B6;
+    --color-link: #CFCFFF;
+    --color-highlight: #9B5DE5;
+    --color-accent: #00BBF9;
+    --color-contrast: #FF00FF;
+    --color-pink: #F15BB5;
+    --color-purple-dark: #5b02c7;
+    --color-blue-neon: #00BFFF;
+    --color-shadow: rgba(0, 0, 0, 0.3);
+
+    /* Gradients */
+    --gradient-highlight: linear-gradient(to right, var(--color-highlight), var(--color-accent));
+    --gradient-hover: linear-gradient(135deg, var(--color-pink), var(--color-highlight));
+    --gradient-logo: linear-gradient(to right, var(--color-contrast), #00FFFF);
+}
+
+/* ---------- Base Setup ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    background: var(--color-bg);
+    color: var(--color-text);
+    scroll-behavior: smooth;
+    padding-top: 30px;
+}
+
+/* ---------- Navbar ---------- */
+
+.logo-home{
+    text-decoration: none;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 3rem;
+    background: rgba(2, 7, 61); /* Can optionally define this as a new variable */
+    backdrop-filter: blur(12px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 8px 30px var(--color-shadow);
+    animation: fadeDown 1s ease forwards;
+}
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 45px;
+    margin-right: 10px;
+    filter: drop-shadow(0 0 4px var(--color-blue-neon));
+}
+
+.site-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-purple-dark);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--color-link);
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 2px;
+    background: var(--gradient-highlight);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.login-btn {
+    background: var(--gradient-highlight);
+    color: var(--color-text) !important;
+    padding: 0.4rem 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 14px rgba(0, 187, 249, 0.4); /* Optional: create a --color-accent-shadow variable */
+    transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+    background: var(--gradient-hover);
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--color-highlight);
+    background-color: transparent;
+    border: none;
+}
+
+/* ---------- Side Menu ---------- */
+.side-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 250px;
+    background: linear-gradient(145deg, #1E2430, #0B0F1A); /* Optional: add to root vars if needed */
+    box-shadow: -4px 0 12px var(--color-shadow);
+    padding: 2rem;
+    z-index: 1001;
+    flex-direction: column;
+    transition: right 0.4s ease;
+}
+
+.menu-header {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--color-highlight);
+}
+
+.menu-links {
+    list-style: none;
+    padding: 1rem 0;
+}
+
+.menu-links li {
+    margin: 1rem 0;
+}
+
+.menu-links a {
+    color: var(--color-text);
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 1040px) {
+    .nav-links {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .side-menu {
+        display: flex;
+    }
+}
+
+

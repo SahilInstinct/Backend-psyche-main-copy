@@ -1,0 +1,24 @@
+{% load static %}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Psyche-spectrum{% endblock %}</title>
+  {% block style %} {% endblock %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  {% include "components/navbar.html" %}
+
+  {% block content %}
+
+  {% endblock %}
+
+  <script src="{% static 'js/base.js' %}"></script>
+
+  {% block script %}{% endblock %}
+</body>
+</html>

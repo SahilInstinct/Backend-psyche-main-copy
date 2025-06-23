@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{%load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'css/mbti_base.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+   {% block css %}{% endblock %}
+{% endblock %}
+
+{% block content %}
+   <section class="hero-section" style="background-color: {{ personality.color }};">
+  <div class="hero-content">
+      <div class="aspects">
+        <span class="aspect">{{ personality.aspect1 }}</span>
+        <span class="aspect">{{ personality.aspect2 }}</span>
+        <span class="aspect">{{ personality.aspect3 }}</span>
+        <span class="aspect">{{ personality.aspect4 }}</span>
+      </div>
+
+
+    <h1 class="personality-name">{{ personality.name }}</h1>
+    <h2 class="personality-type">{{ personality.code }} personality</h2>
+
+    <p class="personality-description">
+      {{ personality.description }}
+    </p>
+  </div>
+
+  <div class="hero-image">
+    <img class="image-intro" src="{{ personality.hero_image }}" alt="{{ personality.name }} Hero Image">
+  </div>
+</section>
+
+    <section class="content">
+        <!-- explore links -->
+        <div class="explore tabs">
+            <h3 class="explore-title">Explore this type</h3>
+            <div class="explore-links tab-buttons">
+                <ul>
+                    <li class="tab-btn active"><a href="{% url 'mbti_intro' code=personality.code %}">Introduction</a></li>
+                    <li class="tab-btn"><a href="#">Strength and weakness</a></li>
+                    <li class="tab-btn"><a href="{% url 'mbti_relationship' code=personality.code %}">Romantic relationships</a></li>
+                    <li class="tab-btn"><a href="{% url 'mbti_friendship' code=personality.code %}">Friendship</a></li>
+                    <li class="tab-btn"><a href="{% url 'mbti_parenthood' code=personality.code %}">Parenthood</a></li>
+                    <li class="tab-btn"><a href="{% url 'mbti_career_path' code=personality.code %}">Career path</a></li>
+                    <li class="tab-btn"><a href="{% url 'mbti_workplace_habits' code=personality.code %}">Workplace habits</a></li>
+                    <li class="tab-btn"><a href="#">Conclusion</a></li>
+                </ul>
+
+            </div>
+        </div>
+
+            <!-- Text content  -->
+            <div class="text-content">
+
+                {% block data %}
+                {% endblock %}
+
+            </div>
+
+        <div class="cards">
+            <div class="card">
+                h
+            </div>
+        </div>
+    </section>
+{% endblock %}
+

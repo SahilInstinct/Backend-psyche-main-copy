@@ -1,0 +1,76 @@
+{% extends "mbti/mbti_base.html" %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/parenthood.css' %}">
+{% endblock %}
+
+{% block data %}
+  <div class="parenthood-container">
+  <h2 class="parenthood-heading" style="color: {{ personality.color }};">
+    {{ personality.name }} & Parenthood
+  </h2>
+
+  {% if parenthood.quote1 %}
+    <blockquote class="parenthood-quote" style="border-left-color: {{ personality.color }};">
+      {{ parenthood.quote1 }}
+    </blockquote>
+  {% endif %}
+
+  {% if parenthood.text1 %}
+    <p class="parenthood-text">{{ parenthood.text1 }}</p>
+  {% endif %}
+
+  {% if parenthood.pic1 %}
+    <img src="{{ parenthood.pic1 }}" class="parenthood-image" alt="Parenthood Image 1">
+  {% endif %}
+
+  {% if parenthood.subheading1 %}
+    <h3 class="parenthood-subheading" style="color: {{ personality.color }};">
+      {{ parenthood.subheading1 }}
+    </h3>
+  {% endif %}
+
+  {% if parenthood.text2 %}
+    <p class="parenthood-text">{{ parenthood.text2 }}</p>
+  {% endif %}
+
+  {% if parenthood.quote2 %}
+    <blockquote class="parenthood-quote" style="border-left-color: {{ personality.color }};">
+      {{ parenthood.quote2 }}
+    </blockquote>
+  {% endif %}
+
+  {% if parenthood.text3 %}
+    <p class="parenthood-text">{{ parenthood.text3 }}</p>
+  {% endif %}
+
+  {% if parenthood.subheading2 %}
+    <h3 class="parenthood-subheading" style="color: {{ personality.color }};">
+      {{ parenthood.subheading2 }}
+    </h3>
+  {% endif %}
+
+  {% if parenthood.text4 %}
+    <p class="parenthood-text">{{ parenthood.text4 }}</p>
+  {% endif %}
+
+  {% if parenthood.quote3 %}
+    <blockquote class="parenthood-quote" style="border-left-color: {{ personality.color }};">
+      {{ parenthood.quote3 }}
+    </blockquote>
+  {% endif %}
+
+  {% if parenthood.subheading3 %}
+    <h3 class="parenthood-subheading" style="color: {{ personality.color }};">
+      {{ parenthood.subheading3 }}
+    </h3>
+  {% endif %}
+
+  {% if parenthood.text5 %}
+    <p class="parenthood-text">{{ parenthood.text5 }}</p>
+  {% endif %}
+</div>
+
+
+{% endblock %}

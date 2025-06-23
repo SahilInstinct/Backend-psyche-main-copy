@@ -1,0 +1,73 @@
+{% extends "mbti/mbti_base.html" %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/relationship.css' %}">
+{% endblock %}
+
+
+{% block data %}
+<div class="relationship-container">
+  <h1 class="title" style="color: {{ personality.color }}">{{ personality.name }} – Romantic Relationships</h1>
+
+  {% if relationship.quote1 %}
+    <blockquote class="quote" style="border-left-color: {{ personality.color }}; color: {{ personality.color }};">
+  “{{ relationship.quote1 }}”
+</blockquote>
+  {% endif %}
+
+  {% if relationship.text1 %}
+    <p class="text-block">{{ relationship.text1 }}</p>
+  {% endif %}
+
+  {% if relationship.pic1 %}
+    <img src="{{ relationship.pic1 }}" alt="Romantic Image 1" class="responsive-img">
+  {% endif %}
+
+  {% if relationship.subheading1 %}
+    <h2 class="subheading" style="color: {{ personality.color }};">{{ relationship.subheading1 }}</h2>
+  {% endif %}
+  {% if relationship.text2 %}
+    <p class="text-block">{{ relationship.text2 }}</p>
+  {% endif %}
+
+  {% if relationship.quote2 %}
+    <blockquote class="quote" style="border-left-color: {{ personality.color }};  color: {{ personality.color }};">“{{ relationship.quote2 }}”</blockquote>
+  {% endif %}
+  {% if relationship.text3 %}
+    <p class="text-block">{{ relationship.text3 }}</p>
+  {% endif %}
+
+  {% if relationship.pic2 %}
+    <img src="{{ relationship.pic2 }}" alt="Romantic Image 2" class="responsive-img">
+  {% endif %}
+
+  {% if relationship.subheading2 %}
+    <h2 class="subheading" style="color: {{ personality.color }};">{{ relationship.subheading2 }}</h2>
+  {% endif %}
+  {% if relationship.text4 %}
+    <p class="text-block">{{ relationship.text4 }}</p>
+  {% endif %}
+
+  {% if relationship.quote3 %}
+    <blockquote class="quote" style="border-left-color: {{ personality.color }};  color: {{ personality.color }};">“{{ relationship.quote3 }}”</blockquote>
+  {% endif %}
+  {% if relationship.text5 %}
+    <p class="text-block">{{ relationship.text5 }}</p>
+  {% endif %}
+
+  {% if relationship.subheading3 %}
+    <h2 class="subheading" style="color: {{ personality.color }};">{{ relationship.subheading3 }}</h2>
+  {% endif %}
+  {% if relationship.text6 %}
+    <p class="text-block">{{ relationship.text6 }}</p>
+  {% endif %}
+
+  {% if relationship.quote4 %}
+    <blockquote class="quote" style="border-left-color: {{ personality.color }};  color: {{ personality.color }};">“{{ relationship.quote4 }}”</blockquote>
+  {% endif %}
+  {% if relationship.text7 %}
+    <p class="text-block">{{ relationship.text7 }}</p>
+  {% endif %}
+</div>
+{% endblock %}

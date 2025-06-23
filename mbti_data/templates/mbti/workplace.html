@@ -1,0 +1,82 @@
+{% extends "mbti/mbti_base.html" %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/workplace.css' %}">
+{% endblock %}
+
+{% block data %}
+<div class="workplace-container">
+  <h2 class="workplace-heading" style="color: {{ personality.color }};">
+    {{ personality.name }} & Workplace Habits
+  </h2>
+
+  {% if workplace.text1 %}
+    <p class="workplace-text">{{ workplace.text1 }}</p>
+  {% endif %}
+
+  {% if workplace.subheading1 %}
+    <h3 class="workplace-subheading" style="color: {{ personality.color }};">
+      {{ workplace.subheading1 }}
+    </h3>
+  {% endif %}
+
+  {% if workplace.text2 %}
+    <p class="workplace-text">{{ workplace.text2 }}</p>
+  {% endif %}
+
+  {% if workplace.pic1 %}
+    <img src="{{ workplace.pic1 }}" class="workplace-image" alt="Workplace Image">
+  {% endif %}
+
+  {% if workplace.quote1 %}
+    <blockquote class="workplace-quote" style="border-left-color: {{ personality.color }}; color: {{ personality.color }};">
+      {{ workplace.quote1 }}
+    </blockquote>
+  {% endif %}
+
+  {% if workplace.text3 %}
+    <p class="workplace-text">{{ workplace.text3 }}</p>
+  {% endif %}
+
+  {% if workplace.subheading2 %}
+    <h3 class="workplace-subheading" style="color: {{ personality.color }};">
+      {{ workplace.subheading2 }}
+    </h3>
+  {% endif %}
+
+  {% if workplace.text4 %}
+    <p class="workplace-text">{{ workplace.text4 }}</p>
+  {% endif %}
+
+  {% if workplace.quote2 %}
+    <blockquote class="workplace-quote" style="border-left-color: {{ personality.color }}; color: {{ personality.color }};">
+      {{ workplace.quote2 }}
+    </blockquote>
+  {% endif %}
+
+  {% if workplace.text5 %}
+    <p class="workplace-text">{{ workplace.text5 }}</p>
+  {% endif %}
+
+  {% if workplace.subheading3 %}
+    <h3 class="workplace-subheading" style="color: {{ personality.color }};">
+      {{ workplace.subheading3 }}
+    </h3>
+  {% endif %}
+
+  {% if workplace.text6 %}
+    <p class="workplace-text">{{ workplace.text6 }}</p>
+  {% endif %}
+
+  {% if workplace.quote3 %}
+    <blockquote class="workplace-quote" style="border-left-color: {{ personality.color }}; color: {{ personality.color }};">
+      {{ workplace.quote3 }}
+    </blockquote>
+  {% endif %}
+
+  {% if workplace.text7 %}
+    <p class="workplace-text">{{ workplace.text7 }}</p>
+  {% endif %}
+</div>
+{% endblock %}

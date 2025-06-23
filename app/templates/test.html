@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Test Page {% endblock %}
+
+{% block style %} <link rel="stylesheet" href="{% static 'css/test.css' %}"> {% endblock %}
+{% block content %}
+
+
+    <div class="container">
+        <header>
+            <h1>MBTI Personality Test</h1>
+            <p class="intro">Please answer all questions honestly to find your personality type.</p>
+        </header>
+        <div class="test-container" id="test-container">
+            <div class="progress-indicator" id="progress-indicator"></div>
+            <form id="quiz-form"></form>
+            <div class="btn-container">
+                <button type="button" id="prev-btn" class="btn">Previous</button>
+                <button type="button" id="next-btn" class="btn">Next</button>
+                <button type="button" id="submit-btn" class="btn">Submit</button>
+            </div>
+        </div>
+
+
+
+
+
+
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'js/test.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends "mbti/mbti_base.html" %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/career.css' %}">
+{% endblock %}
+
+{% block data %}
+<div class="career-container">
+  <h2 class="career-heading" style="color: {{ personality.color }};">
+    {{ personality.name }} & Career Paths
+  </h2>
+
+  {% if career.quote1 %}
+    <blockquote class="career-quote" style="border-left-color: {{ personality.color }}; color: {{ personality.color }};">
+      {{ career.quote1 }}
+    </blockquote>
+  {% endif %}
+
+  {% if career.text1 %}
+    <p class="career-text">{{ career.text1 }}</p>
+  {% endif %}
+
+  {% if career.quote2 %}
+    <blockquote class="career-quote" style="border-left-color: {{ personality.color }}; color: {{ personality.color }};">
+      {{ career.quote2 }}
+    </blockquote>
+  {% endif %}
+
+  {% if career.pic1 %}
+    <img src="{{ career.pic1 }}" class="career-image" alt="Career Image">
+  {% endif %}
+
+  {% if career.subheading1 %}
+    <h3 class="career-subheading" style="color: {{ personality.color }};">
+      {{ career.subheading1 }}
+    </h3>
+  {% endif %}
+
+  {% if career.text2 %}
+    <p class="career-text">{{ career.text2 }}</p>
+  {% endif %}
+
+  {% if career.quote3 %}
+    <blockquote class="career-quote" style="border-left-color: {{ personality.color }}; color: {{ personality.color }};">
+      {{ career.quote3 }}
+    </blockquote>
+  {% endif %}
+
+  {% if career.subheading2 %}
+    <h3 class="career-subheading" style="color: {{ personality.color }};">
+      {{ career.subheading2 }}
+    </h3>
+  {% endif %}
+
+  {% if career.text3 %}
+    <p class="career-text">{{ career.text3 }}</p>
+  {% endif %}
+
+  {% if career.quote4 %}
+    <blockquote class="career-quote" style="border-left-color: {{ personality.color }}; color: {{ personality.color }};">
+      {{ career.quote4 }}
+    </blockquote>
+  {% endif %}
+
+  {% if career.text4 %}
+    <p class="career-text">{{ career.text4 }}</p>
+  {% endif %}
+
+  {% if career.subheading3 %}
+    <h3 class="career-subheading" style="color: {{ personality.color }};">
+      {{ career.subheading3 }}
+    </h3>
+  {% endif %}
+
+  {% if career.text5 %}
+    <p class="career-text">{{ career.text5 }}</p>
+  {% endif %}
+
+  {% if career.quote5 %}
+    <blockquote class="career-quote" style="border-left-color: {{ personality.color }}; color: {{ personality.color }};">
+      {{ career.quote5 }}
+    </blockquote>
+  {% endif %}
+
+  {% if career.text6 %}
+    <p class="career-text">{{ career.text6 }}</p>
+  {% endif %}
+</div>
+{% endblock %}

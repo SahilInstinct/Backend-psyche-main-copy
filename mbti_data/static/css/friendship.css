@@ -1,0 +1,50 @@
+
+
+.friendship-container {
+  max-width: 900px;
+  margin: 10px auto;
+  padding: 40px 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  font-family: 'Poppins', sans-serif;
+}
+
+.friendship-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.mbti-quote {
+  background-color: #f9f9f9;
+  font-style: italic;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  border-left: 4px solid #aaa; /* replaced dynamically */
+  color: #444;
+  border-radius: 5px;
+}
+
+.mbti-subheading {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.mbti-paragraph {
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.mbti-image {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 1.5rem 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}

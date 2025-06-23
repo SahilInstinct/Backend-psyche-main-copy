@@ -1,0 +1,66 @@
+{% extends "mbti/mbti_base.html" %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/friendship.css' %}">
+{% endblock %}
+
+
+{% block data %}
+
+  <div class="friendship-container">
+ <h2 class="friendship-heading" style="color: {{ personality.color }};">
+      {{ personality.name }} & Friendship
+    </h2>
+
+    {% if friendship.quote1 %}
+      <blockquote class="mbti-quote" style="border-left: 4px solid {{ personality.color }};">
+        {{ friendship.quote1 }}
+      </blockquote>
+    {% endif %}
+
+    <p class="mbti-paragraph">{{ friendship.text1 }}</p>
+
+    {% if friendship.pic1 %}
+      <img src="{{ friendship.pic1 }}" alt="Image" class="mbti-image">
+    {% endif %}
+
+    {% if friendship.subheading1 %}
+      <h3 class="mbti-subheading" style="color: {{ personality.color }};">{{ friendship.subheading1 }}</h3>
+    {% endif %}
+
+    {% if friendship.text2 %}
+      <p class="mbti-paragraph">{{ friendship.text2 }}</p>
+    {% endif %}
+
+    {% if friendship.quote2 %}
+      <blockquote class="mbti-quote" style="border-left: 4px solid {{ personality.color }};">
+        {{ friendship.quote2 }}
+      </blockquote>
+    {% endif %}
+
+    {% if friendship.text3 %}
+      <p class="mbti-paragraph">{{ friendship.text3 }}</p>
+    {% endif %}
+
+    {% if friendship.subheading2 %}
+      <h3 class="mbti-subheading" style="color: {{ personality.color }};">{{ friendship.subheading2 }}</h3>
+    {% endif %}
+
+    {% if friendship.text4 %}
+      <p class="mbti-paragraph">{{ friendship.text4 }}</p>
+    {% endif %}
+
+    {% if friendship.quote3 %}
+      <blockquote class="mbti-quote" style="border-left: 4px solid {{ personality.color }};">
+        {{ friendship.quote3 }}
+      </blockquote>
+    {% endif %}
+
+    {% if friendship.text5 %}
+      <p class="mbti-paragraph">{{ friendship.text5 }}</p>
+    {% endif %}
+
+  </div>
+
+{% endblock %}

@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Explore the MBTIs {% endblock %}
+
+{% block style %}
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+
+    .card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    }
+
+
+    .topmargin{
+    margin-top: 60px;
+    }
+
+
+  </style>
+
+    {% endblock %}
+
+{% block content %}
+
+  <header class="mb-12 text-center topmargin">
+    <h1 class="text-5xl font-extrabold mb-2">MBTI Personality Types</h1>
+    <p class="text-lg text-gray-600">Explore the 16 MBTI personality types</p>
+  </header>
+
+  <main class="max-w-7xl mx-auto space-y-16">
+    <!-- Analysts -->
+    <section>
+      <h2 class="text-4xl font-bold mb-8 text-purple-700 border-b-2 border-purple-400 inline-block" style="text-decoration: none;">Analysts</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mt-6">
+        <a href="{% url 'mbti_intro' code='INTJ' %}" target="_blank" class="card bg-white rounded-xl p-6 cursor-pointer shadow hover:shadow-lg">
+          <h3 class="text-xl font-semibold text-purple-800 mb-1">Architect</h3>
+          <p class="text-sm font-semibold text-gray-700 mb-2">INTJ-A / INTJ-T</p>
+          <p class="text-gray-600">Imaginative and strategic thinkers, with a plan for everything.</p>
+        </a>
+        <a href="{% url 'mbti_intro' code='INTP' %}" target="_blank" class="card bg-white rounded-xl p-6 cursor-pointer shadow hover:shadow-lg">
+          <h3 class="text-xl font-semibold text-purple-800 mb-1">Logician</h3>
+          <p class="text-sm font-semibold text-gray-700 mb-2">INTP-A / INTP-T</p>
+          <p class="text-gray-600">Innovative inventors with an unquenchable thirst for knowledge.</p>
+        </a>
+        <a href="{% url 'mbti_intro' code='ENTJ' %}" target="_blank" class="card bg-white rounded-xl p-6 cursor-pointer shadow hover:shadow-lg">
+          <h3 class="text-xl font-semibold text-purple-800 mb-1">Commander</h3>
+          <p class="text-sm font-semibold text-gray-700 mb-2">ENTJ-A / ENTJ-T</p>
+          <p class="text-gray-600">Bold, imaginative and strong-willed leaders, always finding a way – or making one.</p>
+        </a>
+        <a href="{% url 'mbti_intro' code='ENTP' %}" target="_blank" class="card bg-white rounded-xl p-6 cursor-pointer shadow hover:shadow-lg">
+          <h3 class="text-xl font-semibold text-purple-800 mb-1">Debater</h3>
+          <p class="text-sm font-semibold text-gray-700 mb-2">ENTP-A / ENTP-T</p>
+          <p class="text-gray-600">Smart and curious thinkers who cannot resist an intellectual challenge.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Diplomats -->
+    <section>
+      <h2 class="text-4xl font-bold mb-8 text-green-700 border-b-2 border-green-400 inline-block" style="text-decoration: none;">Diplomats</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mt-6">
+        <a href="{% url 'mbti_intro' code='INFJ' %}" target="_blank" class="card bg-white rounded-xl p-6 cursor-pointer shadow hover:shadow-lg">
+          <h3 class="text-xl font-semibold text-green-800 mb-1">Advocate</h3>
+          <p class="text-sm font-semibold text-gray-700 mb-2">INFJ-A / INFJ-T</p>
+          <p class="text-gray-600">Quiet and mystical, yet very inspiring and tireless idealists.</p>
+        </a>
+        <a href="{% url 'mbti_intro' code='INFP' %}" target="_blank" class="card bg-white rounded-xl p-6 cursor-pointer shadow hover:shadow-lg">
+          <h3 class="text-xl font-semibold text-green-800 mb-1">Mediator</h3>
+          <p class="text-sm font-semibold text-gray-700 mb-2">INFP-A / INFP-T</p>
+          <p class="text-gray-600">Poetic, kind and altruistic people, always eager to help a good cause.</p>
+        </a>
+        <a href="{% url 'mbti_intro' code='ENFJ' %}" target="_blank" class="card bg-white rounded-xl p-6 cursor-pointer shadow hover:shadow-lg">
+          <h3 class="text-xl font-semibold text-green-800 mb-1">Protagonist</h3>
+          <p class="text-sm font-semibold text-gray-700 mb-2">ENFJ-A / ENFJ-T</p>
+          <p class="text-gray-600">Charismatic and inspiring leaders, able to mesmerize their listeners.</p>
+        </a>
+        <a href="{% url 'mbti_intro' code='ENFP' %}" target="_blank" class="card bg-white rounded-xl p-6 cursor-pointer shadow hover:shadow-lg">
+          <h3 class="text-xl font-semibold text-green-800 mb-1">Campaigner</h3>
+          <p class="text-sm font-semibold text-gray-700 mb-2">ENFP-A / ENFP-T</p>
+          <p class="text-gray-600">Enthusiastic, creative and sociable free spirits, who can always find a reason to smile.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Sentinels -->
+    <section>
+      <h2 class="text-4xl font-bold mb-8 text-blue-700 border-b-2 border-blue-400 inline-block" style="text-decoration: none;">Sentinels</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mt-6">
+        <a href="{% url 'mbti_intro' code='ISTJ' %}" target="_blank" class="card bg-white rounded-xl p-6 cursor-pointer shadow hover:shadow-lg">
+          <h3 class="text-xl font-semibold text-blue-800 mb-1">Logistician</h3>
+          <p class="text-sm font-semibold text-gray-700 mb-2">ISTJ-A / ISTJ-T</p>
+          <p class="text-gray-600">Practical and fact-minded individuals, whose reliability cannot be doubted.</p>
+        </a>
+        <a href="{% url 'mbti_intro' code='ISFJ' %}" target="_blank" class="card bg-white rounded-xl p-6 cursor-pointer shadow hover:shadow-lg">
+          <h3 class="text-xl font-semibold text-blue-800 mb-1">Defender</h3>
+          <p class="text-sm font-semibold text-gray-700 mb-2">ISFJ-A / ISFJ-T</p>
+          <p class="text-gray-600">Very dedicated and warm protectors, always ready to defend their loved ones.</p>
+        </a>
+        <a href="{% url 'mbti_intro' code='ESTJ' %}" target="_blank" class="card bg-white rounded-xl p-6 cursor-pointer shadow hover:shadow-lg">
+          <h3 class="text-xl font-semibold text-blue-800 mb-1">Executive</h3>
+          <p class="text-sm font-semibold text-gray-700 mb-2">ESTJ-A / ESTJ-T</p>
+          <p class="text-gray-600">Excellent administrators, unsurpassed at managing things – or people.</p>
+        </a>
+        <a href="{% url 'mbti_intro' code='ESFJ' %}" target="_blank" class="card bg-white rounded-xl p-6 cursor-pointer shadow hover:shadow-lg">
+          <h3 class="text-xl font-semibold text-blue-800 mb-1">Consul</h3>
+          <p class="text-sm font-semibold text-gray-700 mb-2">ESFJ-A / ESFJ-T</p>
+          <p class="text-gray-600">Extraordinarily caring, social and popular people, always eager to help.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Explorers -->
+    <section>
+      <h2 class="text-4xl font-bold mb-8 text-red-700 border-b-2 border-red-400 inline-block" style="text-decoration: none;">Explorers</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mt-6">
+        <a href="{% url 'mbti_intro' code='ISTP' %}" target="_blank" class="card bg-white rounded-xl p-6 cursor-pointer shadow hover:shadow-lg">
+          <h3 class="text-xl font-semibold text-red-800 mb-1">Virtuoso</h3>
+          <p class="text-sm font-semibold text-gray-700 mb-2">ISTP-A / ISTP-T</p>
+          <p class="text-gray-600">Bold and practical experimenters, masters of all kinds of tools.</p>
+        </a>
+        <a href="{% url 'mbti_intro' code='ISFP' %}" target="_blank" class="card bg-white rounded-xl p-6 cursor-pointer shadow hover:shadow-lg">
+          <h3 class="text-xl font-semibold text-red-800 mb-1">Adventurer</h3>
+          <p class="text-sm font-semibold text-gray-700 mb-2">ISFP-A / ISFP-T</p>
+          <p class="text-gray-600">Flexible and charming artists, always ready to explore and experience something new.</p>
+        </a>
+        <a href="{% url 'mbti_intro' code='ESTP' %}" target="_blank" class="card bg-white rounded-xl p-6 cursor-pointer shadow hover:shadow-lg">
+          <h3 class="text-xl font-semibold text-red-800 mb-1">Entrepreneur</h3>
+          <p class="text-sm font-semibold text-gray-700 mb-2">ESTP-A / ESTP-T</p>
+          <p class="text-gray-600">Smart, energetic and very perceptive people, who truly enjoy living on the edge.</p>
+        </a>
+        <a href="{% url 'mbti_intro' code='ESFP' %}" target="_blank" class="card bg-white rounded-xl p-6 cursor-pointer shadow hover:shadow-lg">
+          <h3 class="text-xl font-semibold text-red-800 mb-1">Entertainer</h3>
+          <p class="text-sm font-semibold text-gray-700 mb-2">ESFP-A / ESFP-T</p>
+          <p class="text-gray-600">Spontaneous, energetic and enthusiastic people – life is never boring around them.</p>
+        </a>
+      </div>
+    </section>
+  </main>
+{% endblock %}
