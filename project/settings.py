@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-4(el#^z5pw&kg*x%$%tien@3yvgzz3jipshgm-5qp4p@hkjt*9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://psyche-spectrum-o2ke.onrender.com']
 
 
 # Application definition
