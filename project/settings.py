@@ -27,7 +27,20 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+import os
 
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # must be this exact name!
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),  # if you have a /static folder
+]
+
+# Add WhiteNoise for production
+MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # add this AFTER SecurityMiddleware
+    # ...
+]
 # Application definition
 
 INSTALLED_APPS = [
