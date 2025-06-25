@@ -28,6 +28,9 @@ MIDDLEWARE = [
     ...
 ]
 
+ALLOWED_HOSTS = ['*']  # not safe long-term, but good for debugging
+
+
 # For WhiteNoise compression (optional, but good)
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
