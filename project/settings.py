@@ -9,39 +9,27 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-4(el#^z5pw&kg*x%$%tien@3yvgzz3jipshgm-5qp4p@hkjt*9'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ['*']
-
-import os
-
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # must be this exact name!
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),  # if you have a /static folder
+    os.path.join(BASE_DIR, 'static'),
 ]
 
-# Add WhiteNoise for production
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # add this AFTER SecurityMiddleware
-    # ...
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # must be right after SecurityMiddleware
+    ...
 ]
-# Application definition
+
+# For WhiteNoise compression (optional, but good)
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 INSTALLED_APPS = [
     'django.contrib.admin',
