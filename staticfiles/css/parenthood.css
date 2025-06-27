@@ -1,0 +1,51 @@
+.parenthood-container {
+  max-width: 900px;
+  margin: 10px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  font-family: 'Poppins', sans-serif;
+}
+
+.parenthood-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #7e22ce;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.parenthood-subheading {
+  font-size: 1.75rem;
+  color: #4c1d95;
+  font-weight: 600;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.parenthood-text {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 18px;
+}
+
+.parenthood-quote {
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #6b21a8;
+  margin: 25px 0;
+  border-left: 4px solid #c084fc;
+  padding-left: 15px;
+}
+
+.parenthood-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 25px 0;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
