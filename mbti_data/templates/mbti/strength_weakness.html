@@ -1,6 +1,6 @@
 {% extends "mbti/mbti_base.html" %}
 {% load static %}
-
+{% block title %} {{ personality.code }} - Strengths & Weakness  {% endblock %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/strength_weakness.css' %}">
 {% endblock %}

@@ -17,7 +17,7 @@
         <ul>
           <li><a href="{% url 'test' %}">Take the Test</a></li>
           <li><a href="{% url 'explore_grid' %}">Types Explained</a></li>
-          <li><a href="{% url 'profile' %}">Your Profile</a></li>
+          <li><a href= "{% if user.is_authenticated %} {% url 'profile' %} {% else %} {% url 'login' %} {% endif %}">Your Profile</a></li>
           <li><a href="#">Contact Us</a></li>
         </ul>
       </div>

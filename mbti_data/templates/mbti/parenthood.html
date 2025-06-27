@@ -1,6 +1,6 @@
 {% extends "mbti/mbti_base.html" %}
 {% load static %}
-
+{% block title %} {{ personality.code }} - Parent {% endblock %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'css/parenthood.css' %}">
 {% endblock %}
