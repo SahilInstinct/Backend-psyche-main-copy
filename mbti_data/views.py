@@ -13,7 +13,18 @@ def explore_grid(request):
 def show_introduction(request, code):
     personality = get_object_or_404(PersonalityType, code=code.upper())
     return render(request, "mbti/introduction.html", {
-        "personality": personality
+        "personality": personality,
+        'active_tab': 'intro',
+    })
+
+def show_strength_weakness(request, code):
+    personality = get_object_or_404(PersonalityType, code=code.upper())
+    strength = getattr(personality, 'strength_weakness_page', None)
+
+    return render(request, 'mbti/strength_weakness.html', {
+        'personality': personality,
+        'strength': strength,
+        'active_tab': 'strength',
     })
 
 def show_relationship(request, code):
@@ -27,6 +38,7 @@ def show_relationship(request, code):
     return render(request, 'mbti/relationship.html', {
         'personality': personality,
         'relationship': relationship,
+        'active_tab': 'relationship',
     })
 
 def show_friendship(request, code):
@@ -35,7 +47,8 @@ def show_friendship(request, code):
 
     return render(request, 'mbti/friendship.html', {
         'personality': personality,
-        'friendship': friendship
+        'friendship': friendship,
+        'active_tab': 'friend',
     })
 
 def show_parenthood(request, code):
@@ -45,6 +58,7 @@ def show_parenthood(request, code):
     return render(request, 'mbti/parenthood.html', {
         'personality': personality,
         'parenthood': parenthood,
+        'active_tab': 'parent',
     })
 
 def show_career_path(request, code):
@@ -53,7 +67,8 @@ def show_career_path(request, code):
 
     return render(request, 'mbti/career.html', {
         'personality': personality,
-        'career': career
+        'career': career,
+        'active_tab': 'career',
     })
 
 def show_workplace_habits(request, code):
@@ -62,14 +77,7 @@ def show_workplace_habits(request, code):
 
     return render(request, 'mbti/workplace.html', {
         'personality': personality,
-        'workplace': workplace
+        'workplace': workplace,
+        'active_tab': 'work',
     })
 
-def show_conclusion(request, code):
-    personality = get_object_or_404(PersonalityType, code=code.upper())
-    conclusion = getattr(personality, 'conclusion', None)
-
-    return render(request, 'mbti/conclusion.html', {
-        'personality': personality,
-        'conclusion': conclusion
-    })

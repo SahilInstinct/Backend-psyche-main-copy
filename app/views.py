@@ -4,6 +4,11 @@ from django.http import HttpResponse, JsonResponse
 from app.models import Question
 from django.views.decorators.csrf import csrf_exempt
 import json
+import requests
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
+from django.views.decorators.http import require_POST
+from profiles.models import Profile
 
 # Create your views here.
 
@@ -110,15 +115,41 @@ def get_opposite(trait_char):
 
 
 
-@csrf_exempt
+
+from profiles.models import Profile
+
+@csrf_exempt  # frontend already sends CSRF, but keep this to avoid conflict
+@require_POST
 def save_result(request):
-    if request.method == 'POST':
+    try:
         data = json.loads(request.body)
         mbti = data.get('mbti')
-        percentages = json.dumps(data.get('percentages'))
-        request.user.profile.mbti_type = mbti
-        request.user.profile.percentages = percentages
-        request.user.profile.save()
-        return JsonResponse({'message': 'Result saved!'})
-    return None
+        percentages = data.get('percentages', {})
+
+        # get or create profile
+        profile, created = Profile.objects.get_or_create(user=request.user)
+        profile.mbti_type = mbti
+
+        # Feed aspect values individually
+        profile.mind_introversion = percentages.get("Mind", {}).get("Introversion", 0)
+        profile.mind_extraversion = percentages.get("Mind", {}).get("Extraversion", 0)
+
+        profile.energy_intuition = percentages.get("Energy", {}).get("Intuition", 0)
+        profile.energy_sensing = percentages.get("Energy", {}).get("Sensing", 0)
+
+        profile.nature_thinking = percentages.get("Nature", {}).get("Thinking", 0)
+        profile.nature_feeling = percentages.get("Nature", {}).get("Feeling", 0)
+
+        profile.tactics_judging = percentages.get("Tactics", {}).get("Judging", 0)
+        profile.tactics_prospecting = percentages.get("Tactics", {}).get("Prospecting", 0)
+
+        profile.identity_assertive = percentages.get("Identity", {}).get("Assertive", 0)
+        profile.identity_turbulent = percentages.get("Identity", {}).get("Turbulent", 0)
+
+        profile.save()
+
+        return JsonResponse({"status": "success"})
+
+    except Exception as e:
+        return JsonResponse({"status": "error", "message": str(e)}, status=400)
 

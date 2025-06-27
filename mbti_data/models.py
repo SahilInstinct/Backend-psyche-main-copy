@@ -247,6 +247,18 @@ class CareerPathSection(models.Model):
     def __str__(self):
         return f"Career Path - {self.personality.code}"
 
+class CareerOption(models.Model):
+    career_path = models.ForeignKey(
+        CareerPathSection,
+        on_delete=models.CASCADE,
+        related_name='career_options'
+    )
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+
+    def __str__(self):
+        return f"{self.title} - {self.career_path.personality.code}"
+
 
 class WorkplaceHabitsSection(models.Model):
     personality = models.OneToOneField(
@@ -281,22 +293,6 @@ class WorkplaceHabitsSection(models.Model):
         return f"Workplace Habits - {self.personality.code}"
 
 
-class ConclusionSection(models.Model):
-    personality = models.OneToOneField(
-        PersonalityType,
-        on_delete=models.CASCADE,
-        related_name='conclusion'
-    )
-
-    text1 = models.TextField(blank=True, null=True)
-    pic1 = models.URLField(blank=True, null=True)
-    subheading1 = models.CharField(max_length=255, blank=True, null=True)
-    text2 = models.TextField(blank=True, null=True)
-
-    def __str__(self):
-        return f"Conclusion - {self.personality.code}"
-
-
 
 
 
@@ -311,7 +307,6 @@ from .models import (
     ParenthoodSection,
     CareerPathSection,
     WorkplaceHabitsSection,
-    ConclusionSection,
 )
 
 admin.site.register(PersonalityType)
@@ -321,5 +316,5 @@ admin.site.register(StrengthWeaknessPage)
 admin.site.register(FriendshipSection)
 admin.site.register(ParenthoodSection)
 admin.site.register(CareerPathSection)
+admin.site.register(CareerOption)
 admin.site.register(WorkplaceHabitsSection)
-admin.site.register(ConclusionSection)

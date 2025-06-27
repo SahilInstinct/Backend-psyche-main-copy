@@ -70,6 +70,46 @@
 
 
 {% block script %}
+    {% if user.is_authenticated %}
+<script>
+    const isUserAuthenticated = true;
+
+    window.addEventListener("DOMContentLoaded", () => {
+        if (localStorage.getItem("unsaved_mbti")) {
+            const save = confirm("We found an unsaved test result. Do you want to save it to your profile?");
+            if (save) {
+                fetch('/save-result/', {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRFToken": getCSRFToken()
+                    },
+                    body: JSON.stringify({
+                        mbti: localStorage.getItem("unsaved_mbti"),
+                        percentages: JSON.parse(localStorage.getItem("unsaved_percentages"))
+                    })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    alert("Result saved to your profile!");
+                    localStorage.removeItem("unsaved_mbti");
+                    localStorage.removeItem("unsaved_percentages");
+                })
+                .catch(() => alert("Failed to save your result."));
+            }
+        }
+    });
+
+    function getCSRFToken() {
+        const name = "csrftoken";
+        const cookieValue = document.cookie
+            .split("; ")
+            .find(row => row.startsWith(name + "="))
+            ?.split("=")[1];
+        return cookieValue;
+    }
+</script>
+{% endif %}
     <script src="{% static 'js/home.js' %}"></script>
 
 

@@ -1,0 +1,55 @@
+{% load static %}
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-columns">
+
+      <!-- Column 1: Brand -->
+      <div class="footer-logo">
+        <img src="{% static 'media/logo.png' %}" alt="Psyche-Spectrum Logo">
+        <h3>Psyche-Spectrum</h3>
+        <p>Explore Your Inner Universe</p>
+      </div>
+
+      <!-- Column 2: Quick Links -->
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="{% url 'test' %}">Take the Test</a></li>
+          <li><a href="{% url 'explore_grid' %}">Types Explained</a></li>
+          <li><a href="{% url 'profile' %}">Your Profile</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Resources -->
+      <div class="footer-section">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#">Books & Tools</a></li>
+          <li><a href="#">Blog (Coming Soon)</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Contact -->
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <p>Email: sahil.instincts@gmail.com</p>
+        <p>Phone: +91 8178056861</p>
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom -->
+    <div class="footer-bottom">
+      <p>&copy; 2025 Psyche-Spectrum. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

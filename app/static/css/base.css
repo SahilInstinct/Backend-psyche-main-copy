@@ -45,7 +45,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 3rem;
-    background: rgba(2, 7, 61); /* Can optionally define this as a new variable */
+    background: #0a0a45; /* Can optionally define this as a new variable */
     backdrop-filter: blur(12px);
     position: fixed;
     width: 100%;
@@ -192,6 +192,111 @@ body {
     .side-menu {
         display: flex;
     }
+}
+
+
+.site-footer {
+  background-color: #0a0a45;
+  color: #ccc;
+  padding: 50px 20px 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.footer-logo {
+  flex: 1 1 200px;
+  text-align: left;
+}
+
+.footer-logo img {
+  width: 60px;
+  margin-bottom: 10px;
+}
+
+.footer-logo h3 {
+  color: #7f5eff;
+  margin: 0;
+}
+
+.footer-logo p {
+  font-size: 14px;
+  color: #aaa;
+  margin-top: 5px;
+}
+
+.footer-section {
+  flex: 1 1 180px;
+}
+
+.footer-section h4 {
+  color: #87f5ff;
+  margin-bottom: 15px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 8px #7f5eff;
+}
+
+.footer-social a {
+  margin-right: 10px;
+  font-size: 20px;
+  color: #ccc;
+  transition: color 0.3s;
+}
+
+.footer-social a:hover {
+  color: #87f5ff;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 13px;
+  color: #777;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-columns {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-logo, .footer-section {
+    text-align: center;
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
 }
 
 

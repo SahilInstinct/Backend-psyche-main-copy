@@ -1,0 +1,56 @@
+{% extends "mbti/mbti_base.html" %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/strength_weakness.css' %}">
+{% endblock %}
+
+{% block data %}
+<div class="strength-weakness-container">
+  <h2 class="section-title" style="color: {{ personality.color }};">Strengths & Weaknesses</h2>
+
+  <!-- Strength Section -->
+  <div class="sw-section">
+    <h3 class="subheading" style="color: {{ personality.color }};">{{ strength.mbti_name_strength }} Strengths</h3>
+
+    {% if strength.pic_strength %}
+      <img src="{{ strength.pic_strength }}" alt="Strength Image" class="sw-image">
+    {% endif %}
+
+    <div class="sw-card-grid">
+      {% if strength.strength1 %}<div class="sw-card strength"><h4 class="sw-title">{{ strength.strength1 }}</h4><p class="sw-desc">{{ strength.strength1_description }}</p></div>{% endif %}
+      {% if strength.strength2 %}<div class="sw-card strength"><h4 class="sw-title">{{ strength.strength2 }}</h4><p class="sw-desc">{{ strength.strength2_description }}</p></div>{% endif %}
+      {% if strength.strength3 %}<div class="sw-card strength"><h4 class="sw-title">{{ strength.strength3 }}</h4><p class="sw-desc">{{ strength.strength3_description }}</p></div>{% endif %}
+      {% if strength.strength4 %}<div class="sw-card strength"><h4 class="sw-title">{{ strength.strength4 }}</h4><p class="sw-desc">{{ strength.strength4_description }}</p></div>{% endif %}
+      {% if strength.strength5 %}<div class="sw-card strength"><h4 class="sw-title">{{ strength.strength5 }}</h4><p class="sw-desc">{{ strength.strength5_description }}</p></div>{% endif %}
+      {% if strength.strength6 %}<div class="sw-card strength"><h4 class="sw-title">{{ strength.strength6 }}</h4><p class="sw-desc">{{ strength.strength6_description }}</p></div>{% endif %}
+      {% if strength.strength7 %}<div class="sw-card strength"><h4 class="sw-title">{{ strength.strength7 }}</h4><p class="sw-desc">{{ strength.strength7_description }}</p></div>{% endif %}
+      {% if strength.strength8 %}<div class="sw-card strength"><h4 class="sw-title">{{ strength.strength8 }}</h4><p class="sw-desc">{{ strength.strength8_description }}</p></div>{% endif %}
+      {% if strength.strength9 %}<div class="sw-card strength"><h4 class="sw-title">{{ strength.strength9 }}</h4><p class="sw-desc">{{ strength.strength9_description }}</p></div>{% endif %}
+      {% if strength.strength10 %}<div class="sw-card strength"><h4 class="sw-title">{{ strength.strength10 }}</h4><p class="sw-desc">{{ strength.strength10_description }}</p></div>{% endif %}
+    </div>
+  </div>
+
+  <!-- Weakness Section -->
+  <div class="sw-section">
+    <h3 class="subheading" style="color: {{ personality.color }};">{{ strength.mbti_name_weakness }} Weaknesses</h3>
+
+    {% if strength.pic_weakness %}
+      <img src="{{ strength.pic_weakness }}" alt="Weakness Image" class="sw-image">
+    {% endif %}
+
+    <div class="sw-card-grid">
+      {% if strength.weakness1 %}<div class="sw-card weakness"><h4 class="sw-title">{{ strength.weakness1 }}</h4><p class="sw-desc">{{ strength.weakness1_description }}</p></div>{% endif %}
+      {% if strength.weakness2 %}<div class="sw-card weakness"><h4 class="sw-title">{{ strength.weakness2 }}</h4><p class="sw-desc">{{ strength.weakness2_description }}</p></div>{% endif %}
+      {% if strength.weakness3 %}<div class="sw-card weakness"><h4 class="sw-title">{{ strength.weakness3 }}</h4><p class="sw-desc">{{ strength.weakness3_description }}</p></div>{% endif %}
+      {% if strength.weakness4 %}<div class="sw-card weakness"><h4 class="sw-title">{{ strength.weakness4 }}</h4><p class="sw-desc">{{ strength.weakness4_description }}</p></div>{% endif %}
+      {% if strength.weakness5 %}<div class="sw-card weakness"><h4 class="sw-title">{{ strength.weakness5 }}</h4><p class="sw-desc">{{ strength.weakness5_description }}</p></div>{% endif %}
+      {% if strength.weakness6 %}<div class="sw-card weakness"><h4 class="sw-title">{{ strength.weakness6 }}</h4><p class="sw-desc">{{ strength.weakness6_description }}</p></div>{% endif %}
+      {% if strength.weakness7 %}<div class="sw-card weakness"><h4 class="sw-title">{{ strength.weakness7 }}</h4><p class="sw-desc">{{ strength.weakness7_description }}</p></div>{% endif %}
+      {% if strength.weakness8 %}<div class="sw-card weakness"><h4 class="sw-title">{{ strength.weakness8 }}</h4><p class="sw-desc">{{ strength.weakness8_description }}</p></div>{% endif %}
+      {% if strength.weakness9 %}<div class="sw-card weakness"><h4 class="sw-title">{{ strength.weakness9 }}</h4><p class="sw-desc">{{ strength.weakness9_description }}</p></div>{% endif %}
+      {% if strength.weakness10 %}<div class="sw-card weakness"><h4 class="sw-title">{{ strength.weakness10 }}</h4><p class="sw-desc">{{ strength.weakness10_description }}</p></div>{% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

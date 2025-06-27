@@ -17,7 +17,7 @@ body{
 
 .hero-content{
     max-width: 60%;
-    margin: 10px;
+    margin: 20px 0 0 30px;
 }
 
 .hero-content h1 {
@@ -33,13 +33,18 @@ body{
 
 .hero-content p {
     font-size: 1.2em;
+    margin-top: 30px;
     margin-bottom: 30px;
     color: white;
+    width: 500px;
 }
 
 .image-intro{
-    width: 600px;
+    height: 600px;
     padding: 20px;
+    margin:0 100px 0 0;
+     filter:
+                drop-shadow(1px 0 0 #000) drop-shadow(-1px 0 0 #000) drop-shadow(0 1px 0 #000) drop-shadow(0 -1px 0 #000);
 
 
 }

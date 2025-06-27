@@ -22,7 +22,17 @@
             </div>
         </div>
 
+    <div class="result-container" id="result-container">
+        <h2 class="section-title">Your Personality Type</h2>
+        <p id="mbti-result" class="mbti-text"></p>
 
+        <div class="trait-bars" id="trait-bars"></div>
+
+        <div class="btn-container" style="justify-content: center; margin-top: 40px;">
+            <a href="{% url 'home' %}" class="btn">Go to Home</a>
+        </div>
+
+    </div>
 
 
 
@@ -31,5 +41,8 @@
 {% endblock %}
 
 {% block script %}
+        <script>
+    const isUserAuthenticated = {{ user.is_authenticated|yesno:"true,false" }};
+</script>
     <script src="{% static 'js/test.js' %}"></script>
 {% endblock %}

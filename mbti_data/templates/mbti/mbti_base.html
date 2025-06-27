@@ -41,14 +41,28 @@
             <h3 class="explore-title">Explore this type</h3>
             <div class="explore-links tab-buttons">
                 <ul>
-                    <li class="tab-btn active"><a href="{% url 'mbti_intro' code=personality.code %}">Introduction</a></li>
-                    <li class="tab-btn"><a href="#">Strength and weakness</a></li>
-                    <li class="tab-btn"><a href="{% url 'mbti_relationship' code=personality.code %}">Romantic relationships</a></li>
-                    <li class="tab-btn"><a href="{% url 'mbti_friendship' code=personality.code %}">Friendship</a></li>
-                    <li class="tab-btn"><a href="{% url 'mbti_parenthood' code=personality.code %}">Parenthood</a></li>
-                    <li class="tab-btn"><a href="{% url 'mbti_career_path' code=personality.code %}">Career path</a></li>
-                    <li class="tab-btn"><a href="{% url 'mbti_workplace_habits' code=personality.code %}">Workplace habits</a></li>
-                    <li class="tab-btn"><a href="#">Conclusion</a></li>
+                    <li class="tab-btn {% if active_tab == 'intro' %}active{% endif %}"><a href="{% url 'mbti_intro' code=personality.code %}">Introduction</a></li>
+                    <li class="tab-btn {% if active_tab == 'strength' %}active{% endif %}"><a href="{% url 'mbti_strength_weakness' code=personality.code %}">Strength and weakness</a></li>
+
+<li class="tab-btn {% if active_tab == 'relationship' %}active{% endif %}">
+  <a href="{% url 'mbti_relationship' code=personality.code %}">Romantic relationships</a>
+</li>
+
+<li class="tab-btn {% if active_tab == 'friend' %}active{% endif %}">
+  <a href="{% url 'mbti_friendship' code=personality.code %}">Friendship</a>
+</li>
+
+<li class="tab-btn {% if active_tab == 'parent' %}active{% endif %}">
+  <a href="{% url 'mbti_parenthood' code=personality.code %}">Parenthood</a>
+</li>
+
+<li class="tab-btn {% if active_tab == 'career' %}active{% endif %}">
+  <a href="{% url 'mbti_career_path' code=personality.code %}">Career path</a>
+</li>
+
+<li class="tab-btn {% if active_tab == 'work' %}active{% endif %}">
+  <a href="{% url 'mbti_workplace_habits' code=personality.code %}">Workplace habits</a>
+</li>
                 </ul>
 
             </div>
@@ -63,10 +77,15 @@
             </div>
 
         <div class="cards">
-            <div class="card">
-                h
+                <div class="card">
+                    <h3>Advocate</h3>
+                    <p>Advocates are quiet visionaries, often serving as inspiring and tireless idealists.</p>
+                </div>
+
             </div>
-        </div>
+        
     </section>
+
+
 {% endblock %}
 

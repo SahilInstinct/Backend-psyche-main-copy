@@ -1,0 +1,331 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Your Profile{% endblock %}
+
+{% block style %}
+<style>
+  body {
+    background: #1c1c2e;
+    font-family: 'Segoe UI', sans-serif;
+    color: #f0f0f0;
+  }
+
+  .profile-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #fff;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+    color: #ccc;
+    margin-bottom: 30px;
+  }
+
+  .profile-card {
+    display: flex;
+    flex-wrap: wrap;
+    background: #2b2b3d;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  .profile-left, .profile-right {
+    flex: 1 1 50%;
+    padding: 40px;
+  }
+
+  .profile-title {
+    font-size: 1.4rem;
+    color: #bbb;
+    margin-bottom: 10px;
+  }
+
+  .profile-mbti {
+    font-size: 1.8rem;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .profile-avatar {
+    max-width: 220px;
+    margin: 0 auto 20px;
+    display: block;
+  }
+
+  .profile-desc {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #ccc;
+    margin-top: 15px;
+    max-width: 400px;
+  }
+
+  .profile-right {
+    background-color: #1f1f30;
+    border-left: 1px solid #333;
+  }
+
+  .container {
+    background: #2e2f41;
+    padding: 20px 24px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    width: 100%;
+    max-width: 550px;
+    box-sizing: border-box;
+    box-shadow: 0 0 0 1px #393a4d, 0 12px 28px rgba(0, 0, 0, 0.25);
+  }
+
+  .header {
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 10px;
+    color: #f0f0f0;
+  }
+
+  .header .percentage {
+    color: #4ca3ff;
+    font-weight: 700;
+    margin-right: 5px;
+  }
+
+  .progress-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    user-select: none;
+    color: #d2d2e0;
+  }
+
+  .label-left,
+  .label-right {
+    width: 80px;
+    flex-shrink: 0;
+    white-space: nowrap;
+    font-size: 13px;
+    text-align: center;
+  }
+
+  .bar-wrapper {
+      flex-grow: 1;
+      position: relative;
+      height: 14px;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    .progress-bar {
+      background-color: #4c90ae;
+      height: 14px;
+      border-radius: 10px;
+      width: 100%;
+      position: relative;
+    }
+    .thumb {
+      position: absolute;
+      right: 50%;
+      transform: translate(50%, -50%);
+      top: 50%;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #f7f8fa;
+      border: 2.5px solid white;
+      box-shadow: 0 0 0 1.5px #4c90ae;
+      box-sizing: border-box;
+    }
+
+  @media (max-width: 768px) {
+    .profile-card {
+      flex-direction: column;
+    }
+
+    .profile-left, .profile-right {
+      flex: 1 1 100%;
+      padding: 30px 20px;
+    }
+
+    .profile-avatar {
+      max-width: 180px;
+    }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="profile-container">
+  <h1>Your Profile</h1>
+  <p class="subtitle">Review your personality test results and learn more about your personality type and core traits.</p>
+
+  <div class="profile-card">
+    <div class="profile-left">
+      <h2 class="profile-title">Your Personality</h2>
+      <h3 class="profile-mbti">{{ personality_name }} ({{ mbti }})</h3>
+      <img src="{{ hero_image }}" alt="MBTI Character" class="profile-avatar">
+      <p class="profile-desc">{{ personality_description }}</p>
+    </div>
+
+    <div class="profile-right">
+      <h2 class="profile-title">Your Traits</h2>
+
+      <!-- Mind -->
+      <div class="container">
+  <div class="header">
+    <span class="percentage">
+      {% if percentages.Mind.Introversion > percentages.Mind.Extraversion %}
+        {{ percentages.Mind.Introversion|floatformat:0 }}%
+      {% else %}
+        {{ percentages.Mind.Extraversion|floatformat:0 }}%
+      {% endif %}
+    </span>
+    <span>
+      {% if percentages.Mind.Introversion > percentages.Mind.Extraversion %}
+        Introversion
+      {% else %}
+        Extraversion
+      {% endif %}
+    </span>
+  </div>
+
+        <div class="progress-container">
+          <div class="label-left">Extraversion</div>
+          <div class="bar-wrapper">
+            <div class="progress-bar" style="background-color: #4ca3ff;" >
+              <div class="thumb" style="right: {{ percentages.Mind.Extraversion|floatformat:0 }}%;"></div>
+            </div>
+          </div>
+          <div class="label-right">Introversion</div>
+        </div>
+      </div>
+
+      <!-- Energy -->
+      <div class="container">
+  <div class="header">
+    <span class="percentage">
+      {% if percentages.Energy.Intuition > percentages.Energy.Sensing %}
+        {{ percentages.Energy.Intuition|floatformat:0 }}%
+      {% else %}
+        {{ percentages.Energy.Sensing|floatformat:0 }}%
+      {% endif %}
+    </span>
+    <span>
+      {% if percentages.Energy.Intuition > percentages.Energy.Sensing %}
+        Intuition
+      {% else %}
+        Sensing
+      {% endif %}
+    </span>
+  </div>
+        <div class="progress-container">
+          <div class="label-left">Sensing</div>
+          <div class="bar-wrapper">
+            <div class="progress-bar" style="background-color: #f4c542;">
+              <div class="thumb" style="right: {{ percentages.Energy.Sensing|floatformat:0 }}%;"></div>
+            </div>
+          </div>
+          <div class="label-right">Intuition</div>
+        </div>
+      </div>
+
+      <!-- Nature -->
+      <div class="container">
+  <div class="header">
+    <span class="percentage">
+      {% if percentages.Nature.Thinking > percentages.Nature.Feeling %}
+        {{ percentages.Nature.Thinking|floatformat:0 }}%
+      {% else %}
+        {{ percentages.Nature.Feeling|floatformat:0 }}%
+      {% endif %}
+    </span>
+    <span>
+      {% if percentages.Nature.Thinking > percentages.Nature.Feeling %}
+        Thinking
+      {% else %}
+        Feeling
+      {% endif %}
+    </span>
+  </div>
+        <div class="progress-container">
+          <div class="label-left">Feeling</div>
+          <div class="bar-wrapper">
+            <div class="progress-bar" style="background-color: #2ecc71;">
+              <div class="thumb" style="right: {{ percentages.Nature.Feeling|floatformat:0 }}%;"></div>
+            </div>
+          </div>
+          <div class="label-right">Thinking</div>
+        </div>
+      </div>
+
+      <!-- Tactics -->
+      <div class="container">
+  <div class="header">
+    <span class="percentage">
+      {% if percentages.Tactics.Judging > percentages.Tactics.Prospecting %}
+        {{ percentages.Tactics.Judging|floatformat:0 }}%
+      {% else %}
+        {{ percentages.Tactics.Prospecting|floatformat:0 }}%
+      {% endif %}
+    </span>
+    <span>
+      {% if percentages.Tactics.Judging > percentages.Tactics.Prospecting %}
+        Judging
+      {% else %}
+        Prospecting
+      {% endif %}
+    </span>
+  </div>
+        <div class="progress-container">
+          <div class="label-left">Prospecting</div>
+          <div class="bar-wrapper">
+            <div class="progress-bar" style="background-color: #a66dd4;">
+              <div class="thumb" style="right: {{ percentages.Tactics.Prospecting|floatformat:0 }}%;"></div>
+            </div>
+          </div>
+          <div class="label-right">Judging</div>
+        </div>
+      </div>
+
+      <!-- Identity -->
+      <div class="container">
+  <div class="header">
+    <span class="percentage">
+      {% if percentages.Identity.Assertive > percentages.Identity.Turbulent %}
+        {{ percentages.Identity.Assertive|floatformat:0 }}%
+      {% else %}
+        {{ percentages.Identity.Turbulent|floatformat:0 }}%
+      {% endif %}
+    </span>
+    <span>
+      {% if percentages.Identity.Assertive > percentages.Identity.Turbulent %}
+        Assertive
+      {% else %}
+        Turbulent
+      {% endif %}
+    </span>
+  </div>
+        <div class="progress-container">
+          <div class="label-left">Turbulent</div>
+          <div class="bar-wrapper">
+            <div class="progress-bar" style="background-color: #e74c3c;">
+              <div class="thumb" style="right: {{ percentages.Identity.Turbulent|floatformat:0 }}%;"></div>
+            </div>
+          </div>
+          <div class="label-right">Assertive</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endblock %}

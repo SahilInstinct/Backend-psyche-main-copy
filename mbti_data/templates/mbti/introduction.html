@@ -6,68 +6,98 @@
 {% endblock %}
 
 {% block data %}
-<section class="intro-section" >
+<section class="intro-section">
 
   <h2 class="section-title" style="color: {{ personality.color }};">Introduction</h2>
 
-  <!-- Description -->
   {% if personality.introduction_page.description %}
     <p class="intro-description">{{ personality.introduction_page.description }}</p>
   {% endif %}
 
-  <!-- MBTI Quote -->
   {% if personality.introduction_page.mbti_quote %}
     <blockquote class="mbti-quote" style="border-left-color: {{ personality.color }}; color: {{ personality.color }};">
       “{{ personality.introduction_page.mbti_quote }}”
     </blockquote>
   {% endif %}
 
-  <!-- Text 1 -->
   {% if personality.introduction_page.text1 %}
     <p class="intro-text">{{ personality.introduction_page.text1 }}</p>
   {% endif %}
 
-  <!-- Image 1 -->
   {% if personality.introduction_page.pic1 %}
     <div class="intro-image-container">
       <img src="{{ personality.introduction_page.pic1 }}" alt="Image 1" class="intro-image">
     </div>
   {% endif %}
 
-  <!-- Quote 1 -->
   {% if personality.introduction_page.quote1 %}
     <blockquote class="highlight-quote" style="border-left-color: {{ personality.color }}; color: {{ personality.color }};">
       “{{ personality.introduction_page.quote1 }}”
     </blockquote>
   {% endif %}
 
-  <!-- Text 2 -->
   {% if personality.introduction_page.text2 %}
     <p class="intro-text">{{ personality.introduction_page.text2 }}</p>
   {% endif %}
 
-  <!-- Subheading 1 -->
   {% if personality.introduction_page.subheading1 %}
     <h3 class="intro-subheading" style="color: {{ personality.color }};">
       {{ personality.introduction_page.subheading1 }}
     </h3>
   {% endif %}
 
-  <!-- Text 3 -->
   {% if personality.introduction_page.text3 %}
     <p class="intro-text">{{ personality.introduction_page.text3 }}</p>
   {% endif %}
 
-  <!-- Quote 2 -->
   {% if personality.introduction_page.quote2 %}
     <blockquote class="highlight-quote" style="border-left-color: {{ personality.color }}; color: {{ personality.color }};">
       “{{ personality.introduction_page.quote2 }}”
     </blockquote>
   {% endif %}
 
-  <!-- Text 4 -->
   {% if personality.introduction_page.text4 %}
     <p class="intro-text">{{ personality.introduction_page.text4 }}</p>
+  {% endif %}
+
+  {% if personality.introduction_page.subheading2 %}
+    <h3 class="intro-subheading" style="color: {{ personality.color }};">
+      {{ personality.introduction_page.subheading2 }}
+    </h3>
+  {% endif %}
+
+  {% if personality.introduction_page.text5 %}
+    <p class="intro-text">{{ personality.introduction_page.text5 }}</p>
+  {% endif %}
+
+  {% if personality.introduction_page.quote3 %}
+    <blockquote class="highlight-quote" style="border-left-color: {{ personality.color }}; color: {{ personality.color }};">
+      “{{ personality.introduction_page.quote3 }}”
+    </blockquote>
+  {% endif %}
+
+  {% if personality.introduction_page.text6 %}
+    <p class="intro-text">{{ personality.introduction_page.text6 }}</p>
+  {% endif %}
+
+  {% if personality.introduction_page.subheading3 %}
+    <h3 class="intro-subheading" style="color: {{ personality.color }};">
+      {{ personality.introduction_page.subheading3 }}
+    </h3>
+  {% endif %}
+
+  {% if personality.introduction_page.text7 %}
+    <p class="intro-text">{{ personality.introduction_page.text7 }}</p>
+  {% endif %}
+
+  {% if personality.introduction_page.quote4 %}
+    <blockquote class="highlight-quote" style="border-left-color: {{ personality.color }}; color: {{ personality.color }};">
+      “{{ personality.introduction_page.quote4 }}”
+    </blockquote>
+  {% endif %}
+
+  {% if personality.introduction_page.text8 %}
+    <p class="intro-text">{{ personality.introduction_page.text8 }}</p>
   {% endif %}
 
 </section>

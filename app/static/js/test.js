@@ -16,6 +16,14 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("prev-btn").addEventListener("click", () => changePage(-1));
     document.getElementById("submit-btn").addEventListener("click", handleSubmit);
 });
+function scrollToTestTop() {
+  setTimeout(() => {
+    window.scrollTo({
+      top: document.getElementById("test-container").offsetTop,
+      behavior: "smooth"
+    });
+  }, 50); // delay helps after DOM changes
+}
 
 function renderQuestions() {
     const start = currentPage * QUESTIONS_PER_PAGE;
@@ -62,7 +70,11 @@ function renderQuestions() {
 
     document.getElementById("progress-indicator").textContent =
         `Page ${currentPage + 1} of ${Math.ceil(questions.length / QUESTIONS_PER_PAGE)}`;
+
+    scrollToTestTop();
+
 }
+
 
 function changePage(offset) {
     const maxPage = Math.ceil(questions.length / QUESTIONS_PER_PAGE) - 1;
@@ -92,10 +104,30 @@ function handleSubmit() {
 
     .then(res => res.json())
     .then(data => {
+    if (!isUserAuthenticated) {
+    localStorage.setItem("unsaved_mbti", data.mbti);
+    localStorage.setItem("unsaved_percentages", JSON.stringify(data.percentages));
+}
     document.getElementById("test-container").style.display = "none";
     document.getElementById("result-container").style.display = "block";
     document.getElementById("mbti-result").textContent = `You are: ${data.mbti}`;
     renderTraitBars(data.percentages);
+    if (!isUserAuthenticated) {
+    localStorage.setItem("unsaved_mbti", data.mbti);
+    localStorage.setItem("unsaved_percentages", JSON.stringify(data.percentages));
+}
+
+    fetch('/save-result/', {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "X-CSRFToken": getCSRFToken()
+        },
+        body: JSON.stringify({
+            mbti: data.mbti,
+            percentages: data.percentages
+        })
+    });
 });
 
 }
@@ -150,16 +182,4 @@ function renderTraitBars(percentages) {
         traitBarsContainer.appendChild(bar);
     });
 }
-
-fetch('/save-result/', {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json",
-        "X-CSRFToken": getCSRFToken()
-    },
-    body: JSON.stringify({
-        mbti: data.mbti,
-        percentages: data.percentages
-    })
-});
 

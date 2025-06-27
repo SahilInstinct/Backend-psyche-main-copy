@@ -14,7 +14,7 @@
     </h2>
 
     {% if friendship.quote1 %}
-      <blockquote class="mbti-quote" style="border-left: 4px solid {{ personality.color }};">
+      <blockquote class="mbti-quote" style="border-left: 4px solid {{ personality.color }}; color: {{ personality.color }};">
         {{ friendship.quote1 }}
       </blockquote>
     {% endif %}
@@ -34,7 +34,7 @@
     {% endif %}
 
     {% if friendship.quote2 %}
-      <blockquote class="mbti-quote" style="border-left: 4px solid {{ personality.color }};">
+      <blockquote class="mbti-quote" style="border-left: 4px solid {{ personality.color }}; color: {{ personality.color }};">
         {{ friendship.quote2 }}
       </blockquote>
     {% endif %}
@@ -52,7 +52,7 @@
     {% endif %}
 
     {% if friendship.quote3 %}
-      <blockquote class="mbti-quote" style="border-left: 4px solid {{ personality.color }};">
+      <blockquote class="mbti-quote" style="border-left: 4px solid {{ personality.color }}; color: {{ personality.color }};">
         {{ friendship.quote3 }}
       </blockquote>
     {% endif %}

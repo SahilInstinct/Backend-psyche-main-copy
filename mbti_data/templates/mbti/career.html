@@ -86,5 +86,22 @@
   {% if career.text6 %}
     <p class="career-text">{{ career.text6 }}</p>
   {% endif %}
+
+  {% if career.career_options.all %}
+  <div class="career-cards-section">
+    <h3 class="career-subheading" style="color: {{ personality.color }};">Career Path Suggestions</h3>
+    <div class="career-card-grid">
+      {% for option in career.career_options.all %}
+        <div class="career-card" style=" box-shadow: 0 6px 20px {{ personality.color }};">
+          <h4 class="career-card-title">{{ option.title }}</h4>
+          <p class="career-card-desc">{{ option.description }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}
 </div>
+
+
+
 {% endblock %}
