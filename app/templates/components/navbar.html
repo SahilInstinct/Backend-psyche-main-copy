@@ -13,7 +13,7 @@
             <ul class="nav-links">
                 <li><a href="{% url 'test' %}">Personality Test</a></li>
                 <li><a href="{% url 'explore_grid' %}">Personality Types</a></li>
-                <li><a href="#">Resources</a></li>
+                <li><a href="{% url 'about' %}"> About </a></li>
                 <li><a href="#">Contact</a></li>
                 {% if user.is_authenticated %}
                 <li><a href="{% url 'profile' %}" class="login-btn">Profile</a> </li>
@@ -35,9 +35,9 @@
             <button class="close-btn" id="close-btn" aria-label="Close Menu">&times;</button>
         </div>
         <ul class="menu-links">
-            <li><a href="#">Home</a></li>
+            <li><a href="{% url 'home' %}">Home</a></li>
             <li><a href="{% url 'test' %}">Test</a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
     </div>

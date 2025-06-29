@@ -149,37 +149,43 @@ function renderTraitBars(percentages) {
     traitBarsContainer.innerHTML = "";
 
     const traitColors = {
-        Mind: "#3498db",
-        Energy: "#f1c40f",
+        Mind: "#4ca3ff",
+        Energy: "#f4c542",
         Nature: "#2ecc71",
-        Tactics: "#8e44ad",
+        Tactics: "#a66dd4",
         Identity: "#e74c3c"
     };
 
     Object.entries(percentages).forEach(([dimension, traits]) => {
-        const traitNames = Object.keys(traits);
-        const left = traitNames[0];
-        const right = traitNames[1];
-        const leftPercent = traits[left];
-        const rightPercent = traits[right];
+        const [leftTrait, rightTrait] = Object.keys(traits);
+        const leftPercent = traits[leftTrait];
+        const rightPercent = traits[rightTrait];
 
-        const dominant = leftPercent > rightPercent ? left : right;
+        const dominantTrait = leftPercent > rightPercent ? leftTrait : rightTrait;
         const dominantPercent = Math.max(leftPercent, rightPercent);
 
-        const bar = document.createElement("div");
-        bar.className = "trait-bar";
-        bar.innerHTML = `
-            <div class="trait-header">
-                <span>${left}</span>
-                <span>${right}</span>
+        const color = traitColors[dimension] || "#4ca3ff";
+        const thumbPosition = rightPercent; // since the thumb is aligned from the right
+
+        const container = document.createElement("div");
+        container.className = "container";
+        container.innerHTML = `
+          <div class="header">
+            <span class="percentage">${dominantPercent.toFixed(0)}%</span>
+            <span>${dominantTrait}</span>
+          </div>
+          <div class="progress-container">
+            <div class="label-left">${leftTrait}</div>
+            <div class="bar-wrapper">
+              <div class="progress-bar" style="background-color: ${color};">
+                <div class="thumb" style="right: ${rightPercent.toFixed(0)}%;"></div>
+              </div>
             </div>
-            <div class="trait-track" style="--bar-color: ${traitColors[dimension]};">
-                <div class="trait-fill" style="width: ${leftPercent}%;"></div>
-                <div class="trait-indicator" style="left: ${leftPercent}%;"></div>
-            </div>
-            <p class="trait-score"><strong>${dominantPercent}% ${dominant}</strong></p>
+            <div class="label-right">${rightTrait}</div>
+          </div>
         `;
-        traitBarsContainer.appendChild(bar);
+        traitBarsContainer.appendChild(container);
     });
 }
+
 

@@ -44,7 +44,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 3rem;
+    padding: 1rem ;
     background: #0a0a45; /* Can optionally define this as a new variable */
     backdrop-filter: blur(12px);
     position: fixed;
@@ -74,13 +74,18 @@ body {
 .logo {
     height: 45px;
     margin-right: 10px;
-    filter: drop-shadow(0 0 4px var(--color-blue-neon));
 }
 
 .site-title {
+    color: var(--color-purple-dark);
     font-size: 1.8rem;
     font-weight: 700;
-    color: var(--color-purple-dark);
+    background: var(--gradient-logo); /* or any custom gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    white-space: nowrap;
 }
 
 .nav-links {
@@ -296,6 +301,17 @@ body {
 
   .footer-social {
     justify-content: center;
+  }
+  .logo-container{
+     display: flex;
+    align-items: center;
+    flex-wrap: nowrap;         /* Don't allow wrapping */
+    white-space: nowrap;       /* Prevent inner content wrapping */
+    overflow: hidden;
+    min-width: 0;              /* Ensure container can shrink */
+    flex-shrink: 1;            /* Allow shrinking if needed */
+    gap: 0px;
+
   }
 }
 
