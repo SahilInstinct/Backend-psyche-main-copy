@@ -49,17 +49,31 @@ def submit_answers(request):
 
         response_weights = {
             "Strongly Agree": (1.0, 0.0),
-            "Agree": (0.75, 0.25),
-            "Neutral": (0.5, 0.5),
-            "Disagree": (0.25, 0.75),
+            "Agree": (0.8, 0.2),
+            "Neutral": (0.2, 0.2),
+            "Disagree": (0.2, 0.8),
             "Strongly Disagree": (0.0, 1.0),
         }
 
-        weight_map = {'Low': 1, 'Medium': 2, 'High': 3}
+        weight_map = {'Low': 1, 'Medium': 1.5, 'High': 2}
+
+        trait_map = {
+            "Introversion": "I", "Extraversion": "E",
+            "Sensing": "S", "Intuition": "N",
+            "Thinking": "T", "Feeling": "F",
+            "Judging": "J", "Prospecting": "P",
+            "Assertive": "A", "Turbulent": "B"
+        }
 
         for response in responses:
             q = Question.objects.get(id=response['question_id'])
-            primary_letter = q.trait_if_agree[0]  # e.g., 'E'
+
+
+            trait_name = q.trait_if_agree.strip()
+            if trait_name not in trait_map:
+                raise ValueError(f"Unknown trait in question ID {q.id}: '{trait_name}'")
+
+            primary_letter = trait_map[trait_name]
             opposite_letter = get_opposite(primary_letter)
 
             primary_score, opposite_score = response_weights[response['answer']]
@@ -68,6 +82,7 @@ def submit_answers(request):
             traits[primary_letter] += primary_score * weight
             traits[opposite_letter] += opposite_score * weight
 
+
         mbti = ''.join([
             'E' if traits['E'] >= traits['I'] else 'I',
             'N' if traits['N'] >= traits['S'] else 'S',
@@ -75,6 +90,8 @@ def submit_answers(request):
             'J' if traits['J'] >= traits['P'] else 'P'
         ])
         identity = 'A' if traits['A'] >= traits['B'] else 'T'
+
+
 
         percentages = {
             'Mind': {
