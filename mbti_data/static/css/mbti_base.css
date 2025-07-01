@@ -13,6 +13,7 @@ body{
     display: flex;
     justify-content: space-between;
     margin: 50px 0 0 0 ;
+    box-sizing: border-box;
 }
 
 .hero-content{
@@ -38,6 +39,9 @@ body{
     color: white;
     width: 500px;
 }
+
+
+
 
 .image-intro{
     height: 600px;
@@ -140,4 +144,89 @@ a{
 
 .explore li{
 list-style:none;
+}
+
+/* Wrap the layout */
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 20px;
+}
+
+/* Responsive layout: stack them vertically */
+@media (max-width: 900px) {
+  .content-wrapper {
+    flex-direction: column;
+  }
+
+  .hero-section {
+    width: 100vw;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .aspects{
+    align-items: center;
+    justify-content: center;
+  }
+  .hero-content {
+    max-width: 90%;
+    margin: 20px;
+    
+  }
+
+   .hero-content h1 {
+    font-size: clamp(2rem, 6vw, 4.5rem);
+    margin: 10px 0;
+    color: white;
+}
+  .hero-content p {
+    width: auto;
+  }
+
+  .image-intro {
+    height: auto;
+    width: 80%;
+    margin: 20px 0;
+  }
+
+  .explore {
+    position: relative;
+    top: 0;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .explore-links {
+    flex-direction: row;
+    overflow-x: auto;
+    width: 92vw;
+    gap: 10px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .explore-links::-webkit-scrollbar {
+    display: none;
+    
+  }
+
+  .explore-links ul {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .explore-links li {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .text-content, .cards {
+    padding: 10px;
+    width: 100%;
+  }
 }

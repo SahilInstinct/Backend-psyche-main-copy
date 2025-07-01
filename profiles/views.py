@@ -24,7 +24,7 @@ def login_user(request):
             if not hasattr(user, 'profile'):
                 Profile.objects.create(user=user)
 
-            return redirect('home')  # or any success page
+            return redirect('profile')  # or any success page
         else:
             return render(request, 'login.html', {'error': 'Invalid username or password. Please try again.'})
 
@@ -92,6 +92,7 @@ def profile_view(request):
 
     return render(request, "profile.html", {
         "mbti": mbti,
+        "mbti_code": base_code,
         "percentages": percentages,
         "personality_name": personality.name if personality else "Unknown",
         "personality_description": personality.description if personality else "",

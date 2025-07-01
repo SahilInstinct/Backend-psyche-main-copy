@@ -36,8 +36,15 @@
         </div>
         <ul class="menu-links">
             <li><a href="{% url 'home' %}">Home</a></li>
-            <li><a href="{% url 'test' %}">Test</a></li>
+            <li><a href="{% url 'test' %}">Take the test</a></li>
+            <li><a href="{% url 'explore_grid' %}">MBTI types</a></li>
             <li><a href="{% url 'about' %}">About</a></li>
-            <li><a href="#">Contact</a></li>
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'mbti_intro' code=request.user.profile.mbti_code %}" >Your Personality</a> </li>
+                <li><a href="{% url 'profile' %}" >Profile</a> </li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                <li><a href="{% url 'login' %}" class="login-btn">Log In</a></li>
+                {% endif %}
         </ul>
     </div>

@@ -145,7 +145,15 @@ def save_result(request):
 
         # get or create profile
         profile, created = Profile.objects.get_or_create(user=request.user)
-        profile.mbti_type = mbti
+
+        # Extract mbti_code from mbti_type
+        if "-" in mbti:
+            mbti_code = mbti.split("-")[0]  # "INTJ"
+        else:
+            mbti_code = mbti  # fallback in case no dash
+
+        profile.mbti_type = mbti  # "INTJ-A"
+        profile.mbti_code = mbti_code
 
         # Feed aspect values individually
         profile.mind_introversion = percentages.get("Mind", {}).get("Introversion", 0)

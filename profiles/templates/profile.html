@@ -166,14 +166,26 @@
 {% block content %}
 <div class="profile-container">
   <h1>Your Profile</h1>
-  <p class="subtitle">Review your personality test results and learn more about your personality type and core traits.</p>
+
+  <p class="subtitle">Click on your MBTI Character to learn more about your personality type</p>
+
 
   <div class="profile-card">
     <div class="profile-left">
+        {% if mbti_code %}
+          <a href="{% url 'mbti_intro' code=mbti_code %}" style="text-decoration: none;">
+
+
       <h2 class="profile-title">Your Personality</h2>
-      <h3 class="profile-mbti">{{ personality_name }} ({{ mbti }})</h3>
+      <h3 class="profile-mbti">{{ personality_name }} </h3>
+            <h3 class="profile-mbti">({{ mbti }}) </h3>
+
       <img src="{{ hero_image }}" alt="MBTI Character" class="profile-avatar">
       <p class="profile-desc">{{ personality_description }}</p>
+            </a>
+    {% else %}
+      <p>You haven't taken the test yet.</p>
+    {% endif %}
     </div>
 
     <div class="profile-right">

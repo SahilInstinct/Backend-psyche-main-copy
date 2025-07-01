@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
+    mbti_code = models.CharField(max_length=7, blank=True)
     mbti_type = models.CharField(max_length=10, blank=True)
     # Mind
     mind_introversion = models.FloatField(default=0.0)

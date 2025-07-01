@@ -188,4 +188,24 @@ function renderTraitBars(percentages) {
     });
 }
 
+const adminAutoBtn = document.getElementById("admin-auto-fill-btn");
+if (adminAutoBtn) {
+    adminAutoBtn.addEventListener("click", () => {
+        // Fill all questions with "Agree"
+        for (let i = 0; i < questions.length; i++) {
+            answers[i] = "Disagree";
 
+            // Check the corresponding radio input
+            const input = document.querySelector(`input[name="q${i}"][value="Agree"]`);
+            if (input) input.checked = true;
+        }
+
+        // Re-render to reflect checked buttons if needed
+        renderQuestions();
+
+        // Auto-submit
+        setTimeout(() => {
+            handleSubmit();
+        }, 500); // slight delay to ensure UI updates
+    });
+}
