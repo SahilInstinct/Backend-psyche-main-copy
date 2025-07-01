@@ -9,12 +9,13 @@
 
     <div class="container">
         <header>
-
+{% if user.is_authenticated and user.is_superuser %}
     <div class="btn-container" style="justify-content: center; margin-top: 20px;">
         <button type="button" id="admin-auto-fill-btn" class="btn" style="background-color: #27ae60;">
             Auto-Fill & Submit (Admin)
         </button>
     </div>
+{% endif %}
 
 
             <h1>MBTI Personality Test</h1>
