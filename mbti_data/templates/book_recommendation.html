@@ -1,0 +1,190 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} MBTI - Books {% endblock %}
+{% block style %} <link rel="stylesheet" href="{% static 'css/book_recommendation.css' %}"> {% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+<h1 class="main-title"> MBTI Book Recommendation</h1>
+
+    <!-- INTJ -->
+<div id="INTJ" class="scroll-offset-anchor"></div>
+<section class="mbti-section">
+    <h2>INTJ – The Architect</h2>
+    <ul>
+        <li><strong>“Thinking, Fast and Slow” by Daniel Kahneman</strong> – Explores dual-process thinking. A perfect intellectual treat for INTJs who love cognitive science and decision theory.</li>
+        <li><strong>“Sapiens” by Yuval Noah Harari</strong> – Offers broad strategic insight into humanity's trajectory — aligns with INTJs’ hunger for systems-level thinking.</li>
+        <li><strong>“The Art of War” by Sun Tzu</strong> – Masterful on strategy and indirect approaches. A timeless favorite for INTJs’ tactical minds.</li>
+    </ul>
+</section>
+
+<!-- INTP -->
+<div id="INTP" class="scroll-offset-anchor"></div>
+<section class="mbti-section">
+    <h2>INTP – The Logician</h2>
+    <ul>
+        <li><strong>“Gödel, Escher, Bach” by Douglas Hofstadter</strong> – A mind-bending exploration of logic, math, art, and music — ideal for INTPs’ abstract brilliance.</li>
+        <li><strong>“Surely You’re Joking, Mr. Feynman!” by Richard Feynman</strong> – A humorous and curious take on life and science — speaks to INTPs’ playful intellect.</li>
+        <li><strong>“The Selfish Gene” by Richard Dawkins</strong> – Appeals to their analytical nature and love for conceptual frameworks.</li>
+    </ul>
+</section>
+
+<!-- ENTJ -->
+<div id="ENTJ" class="scroll-offset-anchor"></div>
+<section class="mbti-section">
+    <h2>ENTJ – The Commander</h2>
+    <ul>
+        <li><strong>“Good to Great” by Jim Collins</strong> – A strategic manual for transforming organizations. ENTJs will appreciate its data-backed leadership models.</li>
+        <li><strong>“The 48 Laws of Power” by Robert Greene</strong> – Bold, controversial, and full of strategy — a thrilling read for the ambitious ENTJ.</li>
+        <li><strong>“Principles” by Ray Dalio</strong> – Offers ENTJs a framework for success through radical transparency and strategic thinking.</li>
+    </ul>
+</section>
+
+<!-- ENTP -->
+<div id="ENTP" class="scroll-offset-anchor"></div>
+<section class="mbti-section">
+    <h2>ENTP – The Visionary</h2>
+    <ul>
+        <li><strong>“Steal Like an Artist” by Austin Kleon</strong> – Encourages playful innovation and unconventional thinking — ENTPs will love the creative freedom.</li>
+        <li><strong>“Start With Why” by Simon Sinek</strong> – Ideal for ENTPs who seek meaning behind ideas and enjoy rallying others around their vision.</li>
+        <li><strong>“The Tipping Point” by Malcolm Gladwell</strong> – Fascinates ENTPs with its fresh take on trends, human behavior, and disruption.</li>
+    </ul>
+</section>
+
+    <!-- INFJ -->
+<div id="INFJ" class="scroll-offset-anchor"></div>
+<section class="mbti-section">
+    <h2>INFJ – The Advocate</h2>
+    <ul>
+        <li><strong>“Man’s Search for Meaning” by Viktor E. Frankl</strong> – A profound exploration of purpose, resilience, and human dignity — INFJs resonate deeply with its message.</li>
+        <li><strong>“Quiet” by Susan Cain</strong> – Validates the inner world of introverts. INFJs will feel deeply seen and understood through its psychological insights.</li>
+        <li><strong>“The Prophet” by Kahlil Gibran</strong> – A poetic, spiritual guide that mirrors INFJs’ introspective and idealistic souls.</li>
+    </ul>
+</section>
+
+<!-- INFP -->
+<div id="INFP" class="scroll-offset-anchor"></div>
+<section class="mbti-section">
+    <h2>INFP – The Mediator</h2>
+    <ul>
+        <li><strong>“The Little Prince” by Antoine de Saint-Exupéry</strong> – A heartful tale about innocence, love, and purpose — perfect for the dreamlike soul of the INFP.</li>
+        <li><strong>“Letters to a Young Poet” by Rainer Maria Rilke</strong> – Offers poetic wisdom for sensitive, creative hearts who long to live authentically.</li>
+        <li><strong>“Women Who Run With the Wolves” by Clarissa Pinkola Estés</strong> – A mythological dive into the feminine psyche — deeply symbolic and healing for INFPs.</li>
+    </ul>
+</section>
+
+<!-- ENFJ -->
+<div id="ENFJ" class="scroll-offset-anchor"></div>
+<section class="mbti-section">
+    <h2>ENFJ – The Protagonist</h2>
+    <ul>
+        <li><strong>“Dare to Lead” by Brené Brown</strong> – Encourages authentic, vulnerable leadership — a perfect reflection of the ENFJ's natural charisma and heart-driven mission.</li>
+        <li><strong>“The Seven Habits of Highly Effective People” by Stephen R. Covey</strong> – A structured framework for ethical leadership, aligned with ENFJ's values.</li>
+        <li><strong>“The Road Less Traveled” by M. Scott Peck</strong> – Blends psychology and spirituality — ENFJs will appreciate its call to meaningful personal growth.</li>
+    </ul>
+</section>
+
+<!-- ENFP -->
+<div id="ENFP" class="scroll-offset-anchor"></div>
+<section class="mbti-section">
+    <h2>ENFP – The Inspirer</h2>
+    <ul>
+        <li><strong>“The Alchemist” by Paulo Coelho</strong> – A journey of dreams, destiny, and discovery — practically written for ENFPs' wandering, hopeful spirits.</li>
+        <li><strong>“Big Magic” by Elizabeth Gilbert</strong> – A celebration of curiosity, creativity, and fearless living — deeply energizing for ENFPs.</li>
+        <li><strong>“You Are a Badass” by Jen Sincero</strong> – Bold, empowering, and humorous — ENFPs will love its unapologetic call to personal power and joy.</li>
+    </ul>
+</section>
+
+    <!-- ISTJ -->
+<div id="ISTJ" class="scroll-offset-anchor"></div>
+<section class="mbti-section">
+    <h2>ISTJ – The Logistician</h2>
+    <ul>
+        <li><strong>“Atomic Habits” by James Clear</strong> – Clear, structured advice for self-discipline and habit formation — a natural match for ISTJs’ practical mindset.</li>
+        <li><strong>“Deep Work” by Cal Newport</strong> – Offers a focused, distraction-free approach to productivity — ISTJs will resonate with its logic and clarity.</li>
+        <li><strong>“Meditations” by Marcus Aurelius</strong> – Stoic, timeless reflections on duty and resilience — speaks to ISTJs’ inner strength and moral code.</li>
+    </ul>
+</section>
+
+<!-- ISFJ -->
+<div id="ISFJ" class="scroll-offset-anchor"></div>
+<section class="mbti-section">
+    <h2>ISFJ – The Defender</h2>
+    <ul>
+        <li><strong>“The Gifts of Imperfection” by Brené Brown</strong> – A heartfelt call to embrace vulnerability and self-worth — deeply soothing for nurturing ISFJs.</li>
+        <li><strong>“The Book Thief” by Markus Zusak</strong> – A tender, emotional story that aligns with ISFJs’ empathy and appreciation for subtle beauty in life.</li>
+        <li><strong>“Tuesdays with Morrie” by Mitch Albom</strong> – A poignant read on love, loss, and legacy — ISFJs will find it quietly transformative.</li>
+    </ul>
+</section>
+
+<!-- ESTJ -->
+<div id="ESTJ" class="scroll-offset-anchor"></div>
+<section class="mbti-section">
+    <h2>ESTJ – The Executive</h2>
+    <ul>
+        <li><strong>“Leaders Eat Last” by Simon Sinek</strong> – Clear leadership lessons on structure, responsibility, and loyalty — tailor-made for an ESTJ mind.</li>
+        <li><strong>“The Effective Executive” by Peter F. Drucker</strong> – A no-nonsense classic on productivity and leadership that ESTJs will appreciate for its precision.</li>
+        <li><strong>“Extreme Ownership” by Jocko Willink & Leif Babin</strong> – Military-rooted leadership principles that echo ESTJs’ values of order and discipline.</li>
+    </ul>
+</section>
+
+<!-- ESFJ -->
+<div id="ESFJ" class="scroll-offset-anchor"></div>
+<section class="mbti-section">
+    <h2>ESFJ – The Consul</h2>
+    <ul>
+        <li><strong>“How to Win Friends and Influence People” by Dale Carnegie</strong> – A timeless guide on people skills — perfect for ESFJs' relational strengths.</li>
+        <li><strong>“The Five Love Languages” by Gary Chapman</strong> – Empowers ESFJs to communicate love effectively, aligning with their nurturing instincts.</li>
+        <li><strong>“The Happiness Project” by Gretchen Rubin</strong> – Organized and inspiring, it helps ESFJs pursue joy through structure, reflection, and daily action.</li>
+    </ul>
+</section>
+
+    <!-- ISTP -->
+<div id="ISTP" class="scroll-offset-anchor"></div>
+<section class="mbti-section">
+    <h2>ISTP – The Virtuoso</h2>
+    <ul>
+        <li><strong>“Zen and the Art of Motorcycle Maintenance” by Robert M. Pirsig</strong> – A philosophical journey through mechanics and mindfulness — ideal for the thoughtful hands-on ISTP.</li>
+        <li><strong>“Shop Class as Soulcraft” by Matthew B. Crawford</strong> – Celebrates the dignity of practical, technical work — speaks directly to ISTPs' independent and tactile spirit.</li>
+        <li><strong>“Ender’s Game” by Orson Scott Card</strong> – A strategic, action-filled sci-fi adventure — blends intellect and instinct in a way ISTPs will love.</li>
+    </ul>
+</section>
+
+<!-- ISFP -->
+<div id="ISFP" class="scroll-offset-anchor"></div>
+<section class="mbti-section">
+    <h2>ISFP – The Adventurer</h2>
+    <ul>
+        <li><strong>“The Secret Life of Bees” by Sue Monk Kidd</strong> – A poetic tale of identity, compassion, and self-discovery — perfectly in tune with ISFPs’ emotional depth.</li>
+        <li><strong>“Wild” by Cheryl Strayed</strong> – A journey of healing through nature and self-exploration — ISFPs will resonate with its rawness and beauty.</li>
+        <li><strong>“The Perks of Being a Wallflower” by Stephen Chbosky</strong> – Quietly powerful and introspective — ideal for ISFPs who feel deeply but speak softly.</li>
+    </ul>
+</section>
+
+<!-- ESTP -->
+<div id="ESTP" class="scroll-offset-anchor"></div>
+<section class="mbti-section">
+    <h2>ESTP – The Dynamo</h2>
+    <ul>
+        <li><strong>“Can’t Hurt Me” by David Goggins</strong> – Bold, intense, and motivational — ESTPs will admire its raw energy and no-excuses mindset.</li>
+        <li><strong>“Rich Dad Poor Dad” by Robert T. Kiyosaki</strong> – Straightforward financial wisdom with a hustle mindset — fits ESTPs’ entrepreneurial energy.</li>
+        <li><strong>“The Subtle Art of Not Giving a F*ck” by Mark Manson</strong> – Edgy, practical, and brutally honest — a solid match for ESTPs’ realistic and direct attitude.</li>
+    </ul>
+</section>
+
+<!-- ESFP -->
+<div id="ESFP" class="scroll-offset-anchor"></div>
+<section class="mbti-section">
+    <h2>ESFP – The Entertainer</h2>
+    <ul>
+        <li><strong>“Eat Pray Love” by Elizabeth Gilbert</strong> – A vibrant journey of self-love, discovery, and indulgence — ESFPs will be swept away by its spirit.</li>
+        <li><strong>“Untamed” by Glennon Doyle</strong> – Fierce and empowering — ESFPs will connect with its bold emotional honesty and expressive voice.</li>
+        <li><strong>“You Are a Badass at Making Money” by Jen Sincero</strong> – Energetic, confident, and playful — aligns with ESFPs’ fearless ambition and love for life.</li>
+    </ul>
+</section>
+
+</div>
+
+{% endblock %}

@@ -81,3 +81,8 @@ def show_workplace_habits(request, code):
         'active_tab': 'work',
     })
 
+def compatibility_page(request):
+    return render(request, "compatibility.html")
+
+def book_recommendation(request):
+    return render(request, "book_recommendation.html")

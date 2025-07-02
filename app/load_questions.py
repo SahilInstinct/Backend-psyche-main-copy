@@ -19,6 +19,16 @@ for question_text, aspect, trait, weight in mbti_questions:
         weight = weight
     )
 '''
+from mbti_data.models import PersonalityType, Compatibility
+
+intj = PersonalityType.objects.get(code="INTJ")
+Compatibility.objects.create(
+    personality=intj,
+    romance_matches="ENFP,INFP,ENTP",
+    friendship_matches="INFJ,INTP,ISTJ",
+    career_matches="ENTJ,ISTP,ESTJ"
+)
+
 
 
 print("✅ Loaded into DB")

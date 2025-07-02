@@ -79,12 +79,25 @@
             </div>
 
         <div class="cards">
-                <div class="card">
-                    <h3>Advocate</h3>
-                    <p>Advocates are quiet visionaries, often serving as inspiring and tireless idealists.</p>
-                </div>
 
-            </div>
+                   <a href="{% url 'compatibility' %}#{{ personality.code }}">
+                      <div class="compat-card">
+                        <h3>🔍 See Your Compatible Types</h3>
+                        <p>Explore your best MBTI matches in love, friendship, and work.</p>
+                      </div>
+                    </a>
+
+                    <a href="{% url 'book_recommendation' %}#{{ personality.code }}" class="book-card">
+
+                             <div class="compat-card">
+                                <h3>📚 Book Picks for {{ personality.code }}s</h3>
+                                <p>See 3 must-read titles handpicked for your MBTI personality.</p>
+                         </div>
+</a>
+
+
+        </div>
+
          </div>
     </section>
 

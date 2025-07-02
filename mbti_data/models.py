@@ -293,6 +293,26 @@ class WorkplaceHabitsSection(models.Model):
         return f"Workplace Habits - {self.personality.code}"
 
 
+class Compatibility(models.Model):
+    personality = models.OneToOneField(PersonalityType, on_delete=models.CASCADE, related_name="compatibility")
+
+    # Comma-separated personality codes
+    romance_matches = models.CharField(max_length=50, help_text="Comma-separated MBTI types")
+    friendship_matches = models.CharField(max_length=50)
+    career_matches = models.CharField(max_length=50)
+
+    def get_romance_list(self):
+        return self.romance_matches.split(',')
+
+    def get_friendship_list(self):
+        return self.friendship_matches.split(',')
+
+    def get_career_list(self):
+        return self.career_matches.split(',')
+
+    def __str__(self):
+        return f"Compatibility for {self.personality.code}"
+
 
 
 
@@ -307,6 +327,7 @@ from .models import (
     ParenthoodSection,
     CareerPathSection,
     WorkplaceHabitsSection,
+    Compatibility,
 )
 
 admin.site.register(PersonalityType)
@@ -318,3 +339,4 @@ admin.site.register(ParenthoodSection)
 admin.site.register(CareerPathSection)
 admin.site.register(CareerOption)
 admin.site.register(WorkplaceHabitsSection)
+admin.site.register(Compatibility)
