@@ -14,6 +14,7 @@ urlpatterns = [
     path('<str:code>/workplace/', views.show_workplace_habits, name='mbti_workplace_habits'),
     path("compatibility/", views.compatibility_page, name="compatibility"),
     path("books/", views.book_recommendation, name="book_recommendation"),
+    path("famous/", views.famous_mbti_page, name="famous_mbti"),
 
     # path("explore/<str:code>/career/", views.show_career, name="mbti_career"),
 ]

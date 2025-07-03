@@ -49,11 +49,11 @@ def submit_answers(request):
 
         response_weights = {
             "Strongly Agree": (1.0, 0.0),
-            "Agree": (0.8, 0.2),
-            "Neutral": (0.2, 0.2),
-            "Disagree": (0.2, 0.8),
+            "Agree": (0.75, 0.25),
+            "Neutral": (0.5, 0.5),
+            "Disagree": (0.25, 0.75),
             "Strongly Disagree": (0.0, 1.0),
-        }
+                    }
 
         weight_map = {'Low': 1, 'Medium': 1.5, 'High': 2}
 
@@ -180,3 +180,4 @@ def save_result(request):
 
 def aboutPageView(req):
     return render(req, "about.html")
+

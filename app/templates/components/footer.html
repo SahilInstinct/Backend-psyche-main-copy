@@ -18,7 +18,7 @@
           <li><a href="{% url 'test' %}">Take the Test</a></li>
           <li><a href="{% url 'explore_grid' %}">Types Explained</a></li>
           <li><a href= "{% if user.is_authenticated %} {% url 'profile' %} {% else %} {% url 'login' %} {% endif %}">Your Profile</a></li>
-          <li><a href="#">Contact Us</a></li>
+          <li><a href="https://www.instagram.com/sahil_instinct/">Contact Us</a></li>
         </ul>
       </div>
 
@@ -26,10 +26,10 @@
       <div class="footer-section">
         <h4>Resources</h4>
         <ul>
-          <li><a href="#">Books & Tools</a></li>
-          <li><a href="#">Blog (Coming Soon)</a></li>
-          <li><a href="#">FAQ</a></li>
-          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="{% url 'book_recommendation' %}">Books & Tools</a></li>
+          <li><a href="{% url 'famous_mbti' %}">Famous MBTIs</a></li>
+          <li><a href="{% url 'compatibility' %}">Compatible MBTIs</a></li>
+          <li><a href="https://www.instagram.com/sahil_instinct/">Connect</a></li>
         </ul>
       </div>
 
@@ -39,9 +39,9 @@
         <p>Email: sahil.instincts@gmail.com</p>
         <p>Phone: +91 8178056861</p>
         <div class="footer-social">
-          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.instagram.com/sahil_instinct/"><i class="fab fa-instagram"></i></a>
           <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.linkedin.com/in/mohd-sahil-instinct/"><i class="fab fa-linkedin-in"></i></a>
         </div>
       </div>
 

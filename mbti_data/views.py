@@ -86,3 +86,6 @@ def compatibility_page(request):
 
 def book_recommendation(request):
     return render(request, "book_recommendation.html")
+
+def famous_mbti_page(request):
+    return render(request, "famous_mbti.html")
