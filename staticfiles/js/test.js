@@ -3,6 +3,25 @@ let answers = [];
 let currentPage = 0;
 const QUESTIONS_PER_PAGE = 6;
 
+const personalityNames = {
+    INTJ: "The Architect",
+    INTP: "The Logician",
+    ENTJ: "The Commander",
+    ENTP: "The Debater",
+    INFJ: "The Advocate",
+    INFP: "The Mediator",
+    ENFJ: "The Protagonist",
+    ENFP: "The Campaigner",
+    ISTJ: "The Logistician",
+    ISFJ: "The Defender",
+    ESTJ: "The Executive",
+    ESFJ: "The Consul",
+    ISTP: "The Virtuoso",
+    ISFP: "The Adventurer",
+    ESTP: "The Entrepreneur",
+    ESFP: "The Entertainer"
+};
+
 document.addEventListener("DOMContentLoaded", () => {
     fetch("/get-questions/")
         .then(res => res.json())
@@ -111,6 +130,9 @@ function handleSubmit() {
     document.getElementById("test-container").style.display = "none";
     document.getElementById("result-container").style.display = "block";
     document.getElementById("mbti-result").textContent = `You are: ${data.mbti}`;
+    const mbtiCode = data.mbti.split("-")[0];  // Get only "INTJ"
+    const name = personalityNames[mbtiCode] || "Unknown Personality";
+    document.getElementById("mbti-name").textContent = name;
     renderTraitBars(data.percentages);
     if (!isUserAuthenticated) {
     localStorage.setItem("unsaved_mbti", data.mbti);
