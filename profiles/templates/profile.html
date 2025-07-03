@@ -160,6 +160,39 @@
       max-width: 180px;
     }
   }
+
+  .tooltip {
+  position: relative;
+  cursor: help;
+}
+
+.tooltip .tooltip-text {
+  visibility: hidden;
+  opacity: 0;
+  width: 260px;
+  background-color: #333;
+  color: #f0f0f0;
+  text-align: left;
+  border-radius: 8px;
+  padding: 10px;
+  position: absolute;
+  z-index: 100;
+  bottom: 125%; /* place above */
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.3s;
+  font-size: 0.85rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+   bottom: auto;
+  top: 125%;
+}
+
+
 </style>
 {% endblock %}
 
@@ -193,7 +226,7 @@
 
       <!-- Mind -->
       <div class="container">
-  <div class="header">
+  <div class="header tooltip  mobile-tooltip" onclick="toggleTooltip(this)">
     <span class="percentage">
       {% if percentages.Mind.Introversion > percentages.Mind.Extraversion %}
         {{ percentages.Mind.Introversion|floatformat:0 }}%
@@ -208,6 +241,9 @@
         Extraversion
       {% endif %}
     </span>
+    <div class="tooltip-text">
+      <strong>Mind</strong> shows how we interact with our environment — whether we're more reserved and thoughtful (Introverted) or outgoing and action-oriented (Extraverted).
+    </div>
   </div>
 
         <div class="progress-container">
@@ -223,7 +259,7 @@
 
       <!-- Energy -->
       <div class="container">
-  <div class="header">
+    <div class="header tooltip  mobile-tooltip" onclick="toggleTooltip(this)">
     <span class="percentage">
       {% if percentages.Energy.Intuition > percentages.Energy.Sensing %}
         {{ percentages.Energy.Intuition|floatformat:0 }}%
@@ -238,6 +274,9 @@
         Sensing
       {% endif %}
     </span>
+      <div class="tooltip-text">
+  <strong>Energy</strong> determines how we see the world and process information — either focusing on the present and facts (Sensing) or patterns and possibilities (Intuition).
+      </div>
   </div>
         <div class="progress-container">
           <div class="label-left">Sensing</div>
@@ -252,7 +291,7 @@
 
       <!-- Nature -->
       <div class="container">
-  <div class="header">
+  <div class="header tooltip mobile-tooltip" onclick="toggleTooltip(this)">
     <span class="percentage">
       {% if percentages.Nature.Thinking > percentages.Nature.Feeling %}
         {{ percentages.Nature.Thinking|floatformat:0 }}%
@@ -267,6 +306,10 @@
         Feeling
       {% endif %}
     </span>
+    <div class="tooltip-text">
+  <strong>Nature</strong> influences how we make decisions — based on logic and consistency (Thinking) or on values and empathy (Feeling).
+</div>
+
   </div>
         <div class="progress-container">
           <div class="label-left">Feeling</div>
@@ -281,7 +324,7 @@
 
       <!-- Tactics -->
       <div class="container">
-  <div class="header">
+  <div class="header tooltip  mobile-tooltip" onclick="toggleTooltip(this)">
     <span class="percentage">
       {% if percentages.Tactics.Judging > percentages.Tactics.Prospecting %}
         {{ percentages.Tactics.Judging|floatformat:0 }}%
@@ -296,6 +339,10 @@
         Prospecting
       {% endif %}
     </span>
+    <div class="tooltip-text">
+  <strong>Tactics</strong> reflects our approach to work and planning — either structured and decisive (Judging) or flexible and adaptable (Prospecting).
+</div>
+
   </div>
         <div class="progress-container">
           <div class="label-left">Prospecting</div>
@@ -310,7 +357,7 @@
 
       <!-- Identity -->
       <div class="container">
-  <div class="header">
+  <div class="header tooltip mobile-tooltip" onclick="toggleTooltip(this)">
     <span class="percentage">
       {% if percentages.Identity.Assertive > percentages.Identity.Turbulent %}
         {{ percentages.Identity.Assertive|floatformat:0 }}%
@@ -325,6 +372,10 @@
         Turbulent
       {% endif %}
     </span>
+    <div class="tooltip-text">
+  <strong>Identity</strong> shows our confidence in our abilities and decisions — being self-assured (Assertive) or sensitive to stress (Turbulent).
+</div>
+
   </div>
         <div class="progress-container">
           <div class="label-left">Turbulent</div>
@@ -340,4 +391,36 @@
     </div>
   </div>
 </div>
+
+
+{% endblock %}
+
+{% block script %}
+<script>
+  function toggleTooltip(el) {
+    const tooltip = el.querySelector('.tooltip-text');
+    const isVisible = tooltip.style.visibility === 'visible';
+
+    // Close any other open tooltip
+    document.querySelectorAll('.tooltip-text').forEach(t => {
+      t.style.visibility = 'hidden';
+      t.style.opacity = '0';
+    });
+
+    if (!isVisible) {
+      tooltip.style.visibility = 'visible';
+      tooltip.style.opacity = '1';
+    }
+  }
+
+  // Optional: Close tooltip when clicking outside
+  document.addEventListener('click', function (event) {
+    if (!event.target.closest('.mobile-tooltip')) {
+      document.querySelectorAll('.tooltip-text').forEach(t => {
+        t.style.visibility = 'hidden';
+        t.style.opacity = '0';
+      });
+    }
+  });
+</script>
 {% endblock %}
