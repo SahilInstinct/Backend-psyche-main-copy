@@ -44,6 +44,7 @@ def register_view(request):
             })
 
         user = User.objects.create_user(username=username, password=password)
+        Profile.objects.create(user=user)
         login(request, user)  # log them in right after register
         return redirect('home')  # or wherever you want to go
 

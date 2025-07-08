@@ -40,7 +40,9 @@
             <li><a href="{% url 'explore_grid' %}">MBTI types</a></li>
             <li><a href="{% url 'about' %}">About</a></li>
             {% if user.is_authenticated %}
+                {% if user.profile.mbti_code %}
                 <li><a href="{% url 'mbti_intro' code=request.user.profile.mbti_code %}" >Your Personality</a> </li>
+                {% endif %}
                 <li><a href="{% url 'profile' %}" >Profile</a> </li>
                 <li><a href="{% url 'logout' %}">Logout</a></li>
                 {% else %}
